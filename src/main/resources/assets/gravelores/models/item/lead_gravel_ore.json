@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "gravelores:blocks/lead_gravel_ore",
+        "particle": "gravelores:blocks/lead_gravel_ore"
+    }
+}
