@@ -5,6 +5,7 @@ import java.util.List;
 import elucent.gravelores.GravelOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -32,6 +33,7 @@ public class BlockGravelOre extends BlockFalling {
 		if (addToTab){
 			setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		}
+		setSoundType(SoundType.GROUND);
 		GameRegistry.register(this);
         GameRegistry.register(itemBlock = (new ItemBlock(this).setRegistryName(this.getRegistryName())));
 		OreDictionary.registerOre(oreKey, this);
