@@ -11,7 +11,7 @@ public class CommonProxy {
 	}
 	
 	public void init(FMLInitializationEvent event){
-		
+		GravelOres.registerOreDict();
 	}
 	
 	public void postInit(FMLPostInitializationEvent event){

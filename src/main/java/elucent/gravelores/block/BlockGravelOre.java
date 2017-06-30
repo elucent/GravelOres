@@ -26,6 +26,7 @@ public class BlockGravelOre extends BlockFalling {
 	public Block dropCopier = null;
 	public boolean isOpaqueCube = true, isFullCube = true;
 	public BlockRenderLayer layer = BlockRenderLayer.SOLID;
+	public String oreKey = "";
 	public BlockGravelOre(Material material, String name, String oreKey, boolean addToTab){
 		super(material);
 		setUnlocalizedName(name);
@@ -34,9 +35,8 @@ public class BlockGravelOre extends BlockFalling {
 			setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		}
 		setSoundType(SoundType.GROUND);
-		GameRegistry.register(this);
-        GameRegistry.register(itemBlock = (new ItemBlock(this).setRegistryName(this.getRegistryName())));
-		OreDictionary.registerOre(oreKey, this);
+		itemBlock = (new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		this.oreKey = oreKey;
     }
 	
 	public BlockGravelOre setIsOpaqueCube(boolean b){

@@ -30,7 +30,7 @@ public class WorldGenGravelOres implements IWorldGenerator {
 					int zz = chunkZ*16 + 8 + random.nextInt(16);
 					BlockPos top = world.getTopSolidOrLiquidBlock(new BlockPos(xx,64,zz));
 					IBlockState state = world.getBlockState(top);
-					if (state.getBlock() != Blocks.WATER){
+					if (state.getBlock() != Blocks.WATER && state.isOpaqueCube()){
 						if (state.getBlock() == Blocks.AIR || state.getBlock().isReplaceable(world, top)){
 							int tries = ConfigManager.orePileMinSize+random.nextInt(ConfigManager.orePileMaxSize-ConfigManager.orePileMinSize);
 							List<BlockPos> blocks = new ArrayList<BlockPos>();
