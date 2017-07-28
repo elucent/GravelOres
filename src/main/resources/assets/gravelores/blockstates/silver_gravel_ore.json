@@ -1,5 +1,7 @@
 {
-    "variants":{
-        "normal":{"model": "gravelores:silver_gravel_ore"}
+  "variants": {
+    "normal": {
+      "model": "gravelores:silver_gravel_ore"
     }
+  }
 }
