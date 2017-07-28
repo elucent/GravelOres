@@ -1,7 +1,7 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "gravelores:blocks/silver_gravel_ore",
-    "particle": "gravelores:blocks/silver_gravel_ore"
-  }
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "gravelores:blocks/silver_gravel_ore",
+        "particle": "gravelores:blocks/silver_gravel_ore"
+    }
 }

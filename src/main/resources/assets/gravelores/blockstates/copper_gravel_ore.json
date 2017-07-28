@@ -1,7 +1,5 @@
 {
-  "variants": {
-    "normal": {
-      "model": "gravelores:copper_gravel_ore"
+    "variants":{
+        "normal":{"model": "gravelores:copper_gravel_ore"}
     }
-  }
 }
