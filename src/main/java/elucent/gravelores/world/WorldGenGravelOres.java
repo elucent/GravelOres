@@ -29,23 +29,29 @@ public class WorldGenGravelOres implements IWorldGenerator {
 					int xx = chunkX*16 + 8 + random.nextInt(16);
 					int zz = chunkZ*16 + 8 + random.nextInt(16);
 					BlockPos top = world.getTopSolidOrLiquidBlock(new BlockPos(xx,64,zz));
+					// relative position and the one below
 					IBlockState state = world.getBlockState(top);
-					if (state.getBlock() != Blocks.WATER && state.isOpaqueCube()){
-						if (state.getBlock() == Blocks.AIR || state.getBlock().isReplaceable(world, top)){
-							int tries = ConfigManager.orePileMinSize+random.nextInt(ConfigManager.orePileMaxSize-ConfigManager.orePileMinSize);
-							List<BlockPos> blocks = new ArrayList<BlockPos>();
-							blocks.add(top);
-							for (int i = 0; i < tries; i ++){
-								BlockPos pos = blocks.get(random.nextInt(blocks.size()));
-								EnumFacing face = EnumFacing.getFront(random.nextInt(6));
-								IBlockState state2 = world.getBlockState(pos.offset(face));
-								if (state2.getBlock() == Blocks.AIR || state2.getBlock().isReplaceable(world, pos.offset(face))){
-									blocks.add(pos.offset(face));
-								}
+					IBlockState below = world.getBlockState(top.down());
+					if (state.getBlock() != Blocks.WATER && below.isOpaqueCube() && state.getBlock().isReplaceable(world, top)){
+						int tries = ConfigManager.orePileMinSize+random.nextInt(ConfigManager.orePileMaxSize-ConfigManager.orePileMinSize);
+						List<BlockPos> blocks = new ArrayList<BlockPos>();
+						blocks.add(top);
+
+						// loop through the vein size
+						for (int i = 0; i < tries; i ++){
+							// start from a random ore and random side
+							BlockPos start = blocks.get(random.nextInt(blocks.size()));
+							EnumFacing face = EnumFacing.getFront(random.nextInt(6));
+							// actual position
+							BlockPos pos = start.offset(face);
+							IBlockState current = world.getBlockState(pos);
+							if (current.getBlock().isReplaceable(world, start.offset(face))){
+								blocks.add(pos);
 							}
-							for (int i = 0; i < blocks.size(); i ++){
-								world.setBlockState(blocks.get(i), ore);
-							}
+						}
+						// place the blocks
+						for (int i = 0; i < blocks.size(); i ++){
+							world.setBlockState(blocks.get(i), ore);
 						}
 					}
 				}
