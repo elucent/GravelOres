@@ -2,6 +2,7 @@ package elucent.gravelores.block;
 
 import java.util.List;
 
+import elucent.gravelores.ConfigManager;
 import elucent.gravelores.GravelOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -10,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -58,6 +60,11 @@ public class BlockGravelOre extends BlockFalling {
 		}
 	}
 	
+    @Override
+	protected void onStartFalling(EntityFallingBlock fallingBlock){
+    	fallingBlock.shouldDropItem = ConfigManager.oreFallingDropItems;
+    }
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state){
 		return isOpaqueCube;

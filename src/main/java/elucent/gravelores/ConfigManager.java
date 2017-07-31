@@ -22,6 +22,8 @@ public class ConfigManager {
 	public static int orePileMinSize = 10;
 	public static int orePileMaxSize = 40;
 	
+	public static boolean oreFallingDropItems = false;
+
 	//STRUCTURES
 
 	public static void init(File configFile)
@@ -67,6 +69,8 @@ public class ConfigManager {
 		orePileMinSize = config.getInt("orePileMinSize", "ores", 10, 0, 100, "Minimum size value for generated ore piles. This is a number of block spawning attempts, not blocks -- piles can be smaller than this minimum value.");
 		orePileMaxSize = config.getInt("orePileMaxSize", "ores", 40, 0, 100, "Maximum size value for generated ore piles. This is a number of block spawning attempts, not blocks -- piles will not always be between this and the minimum size in block count.");
 		
+		oreFallingDropItems = config.getBoolean("oreFallingDropItems", "ores", false, "If true, falling gravel ores drop items if they are unable to land (e.g. falls on a torch). Defaults to false which prevents working around harvest levels.");
+
 		if (config.hasChanged()){
 			config.save();
 		}
