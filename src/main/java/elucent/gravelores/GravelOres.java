@@ -160,7 +160,6 @@ public class GravelOres
     
     @SubscribeEvent
     public void registerRendering(ModelRegistryEvent event){
-    	System.out.println("TEST");
     	for (int i = 0; i < blocks.size(); i ++){
     		blocks.get(i).initModel();
     	}
