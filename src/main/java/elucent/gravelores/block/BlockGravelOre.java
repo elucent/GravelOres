@@ -10,16 +10,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockGravelOre extends BlockFalling {
 	public Item itemBlock = null;
@@ -59,6 +57,11 @@ public class BlockGravelOre extends BlockFalling {
 		}
 	}
 	
+    @Override
+	protected void onStartFalling(EntityFallingBlock fallingBlock){
+    	fallingBlock.shouldDropItem = ConfigManager.oreFallingDropItems;
+    }
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state){
 		return isOpaqueCube;
