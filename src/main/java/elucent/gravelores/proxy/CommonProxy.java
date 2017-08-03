@@ -6,15 +6,15 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CommonProxy {
-	public void preInit(FMLPreInitializationEvent event){
+	public void preInit(FMLPreInitializationEvent event) {
 		GravelOres.registerAll();
 	}
-	
-	public void init(FMLInitializationEvent event){
+
+	public void init(FMLInitializationEvent event) {
 		GravelOres.registerOreDict();
 	}
-	
-	public void postInit(FMLPostInitializationEvent event){
+
+	public void postInit(FMLPostInitializationEvent event) {
 		GravelOres.registerRecipes();
 	}
 }

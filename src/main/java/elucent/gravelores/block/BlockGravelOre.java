@@ -2,6 +2,7 @@ package elucent.gravelores.block;
 
 import java.util.List;
 
+import elucent.gravelores.ConfigManager;
 import elucent.gravelores.GravelOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -25,74 +26,76 @@ public class BlockGravelOre extends BlockFalling {
 	public boolean isOpaqueCube = true, isFullCube = true;
 	public BlockRenderLayer layer = BlockRenderLayer.SOLID;
 	public String oreKey = "";
-	public BlockGravelOre(Material material, String name, String oreKey, boolean addToTab){
+
+	public BlockGravelOre(Material material, String name, String oreKey, boolean addToTab) {
 		super(material);
 		setUnlocalizedName(name);
-		setRegistryName(GravelOres.MODID+":"+name);
-		if (addToTab){
+		setRegistryName(GravelOres.MODID + ":" + name);
+		if (addToTab) {
 			setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		}
 		setSoundType(SoundType.GROUND);
 		itemBlock = (new ItemBlock(this).setRegistryName(this.getRegistryName()));
 		this.oreKey = oreKey;
-    }
-	
-	public BlockGravelOre setIsOpaqueCube(boolean b){
+	}
+
+	public BlockGravelOre setIsOpaqueCube(boolean b) {
 		isOpaqueCube = b;
 		return this;
 	}
-	
-	public BlockGravelOre setInspiration(Block b){
+
+	public BlockGravelOre setInspiration(Block b) {
 		this.dropCopier = b;
 		return this;
 	}
-	
+
 	@Override
-	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune){
-		if (dropCopier != null){
+	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+		if (dropCopier != null) {
 			return dropCopier.getDrops(world, pos, state, fortune);
 		}
 		else {
 			return super.getDrops(world, pos, state, fortune);
 		}
 	}
-	
-    @Override
-	protected void onStartFalling(EntityFallingBlock fallingBlock){
-    	fallingBlock.shouldDropItem = ConfigManager.oreFallingDropItems;
-    }
 
 	@Override
-	public boolean isOpaqueCube(IBlockState state){
+	protected void onStartFalling(EntityFallingBlock fallingBlock) {
+		fallingBlock.shouldDropItem = ConfigManager.oreFallingDropItems;
+	}
+
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
 		return isOpaqueCube;
 	}
-	
-	public BlockGravelOre setIsFullCube(boolean b){
+
+	public BlockGravelOre setIsFullCube(boolean b) {
 		isFullCube = b;
 		return this;
 	}
-	
+
 	@Override
-	public boolean isFullCube(IBlockState state){
+	public boolean isFullCube(IBlockState state) {
 		return isFullCube;
 	}
-	
+
 	@Override
-	public boolean isFullBlock(IBlockState state){
+	public boolean isFullBlock(IBlockState state) {
 		return isFullCube;
 	}
-	
-	public BlockGravelOre setHarvestProperties(String toolType, int level){
+
+	public BlockGravelOre setHarvestProperties(String toolType, int level) {
 		super.setHarvestLevel(toolType, level);
 		return this;
 	}
-	
-	public BlockGravelOre setHardness(float hardness){
+
+	@Override
+	public BlockGravelOre setHardness(float hardness) {
 		super.setHardness(hardness);
 		return this;
 	}
-	
-	public void initModel(){
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName().toString(),"inventory"));
+
+	public void initModel() {
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName().toString(), "inventory"));
 	}
 }
