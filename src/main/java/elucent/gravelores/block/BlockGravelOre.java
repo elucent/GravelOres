@@ -1,7 +1,5 @@
 package elucent.gravelores.block;
 
-import java.util.List;
-
 import elucent.gravelores.ConfigManager;
 import elucent.gravelores.GravelOres;
 import net.minecraft.block.Block;
@@ -15,33 +13,30 @@ import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.client.model.ModelLoader;
 
 public class BlockGravelOre extends BlockFalling {
 	public Item itemBlock = null;
-	public Block dropCopier = null;
-	public boolean isOpaqueCube = true, isFullCube = true;
-	public BlockRenderLayer layer = BlockRenderLayer.SOLID;
+	private Block dropCopier = null;
 	public String oreKey = "";
+	private boolean hidden;
 
 	public BlockGravelOre(Material material, String name, String oreKey, boolean addToTab) {
 		super(material);
 		setUnlocalizedName(name);
-		setRegistryName(GravelOres.MODID + ":" + name);
+		setRegistryName(GravelOres.MODID, name);
+
+
 		if (addToTab) {
 			setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		}
+
 		setSoundType(SoundType.GROUND);
 		itemBlock = (new ItemBlock(this).setRegistryName(this.getRegistryName()));
 		this.oreKey = oreKey;
-	}
-
-	public BlockGravelOre setIsOpaqueCube(boolean b) {
-		isOpaqueCube = b;
-		return this;
 	}
 
 	public BlockGravelOre setInspiration(Block b) {
@@ -59,31 +54,25 @@ public class BlockGravelOre extends BlockFalling {
 		}
 	}
 
+	public void setHidden() {
+		this.hidden = true;
+	}
+
+	@Override
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> tab) {
+		// ores are hidden if unused
+		if (!hidden) {
+			tab.add(new ItemStack(this));
+		}
+	}
+
 	@Override
 	protected void onStartFalling(EntityFallingBlock fallingBlock) {
+		// only drop the item if enabled in the config
 		fallingBlock.shouldDropItem = ConfigManager.oreFallingDropItems;
 	}
 
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return isOpaqueCube;
-	}
-
-	public BlockGravelOre setIsFullCube(boolean b) {
-		isFullCube = b;
-		return this;
-	}
-
-	@Override
-	public boolean isFullCube(IBlockState state) {
-		return isFullCube;
-	}
-
-	@Override
-	public boolean isFullBlock(IBlockState state) {
-		return isFullCube;
-	}
-
+	/* we want to return BlockGravelOre instead of block */
 	public BlockGravelOre setHarvestProperties(String toolType, int level) {
 		super.setHarvestLevel(toolType, level);
 		return this;
