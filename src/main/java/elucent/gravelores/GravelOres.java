@@ -7,22 +7,17 @@ import java.util.Map.Entry;
 import elucent.gravelores.block.BlockGravelOre;
 import elucent.gravelores.proxy.CommonProxy;
 import elucent.gravelores.world.WorldGenGravelOres;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameData;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -32,7 +27,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class GravelOres
 {
     public static final String MODID = "gravelores";
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "1.1b";
     public static final String DEPENDENCIES = "after:*";
     
     public static List<BlockGravelOre> blocks = new ArrayList<BlockGravelOre>();
@@ -73,63 +68,63 @@ public class GravelOres
     			return false;
     		}
     	};
-    	if (!ConfigManager.blacklist.contains("oreCoal")){
-    		blocks.add(coal_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "coal_gravel_ore", "oreCoal", true).setInspiration(Blocks.COAL_ORE).setHarvestProperties("shovel", 0).setHardness(1.6f));
+    	blocks.add(coal_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "coal_gravel_ore", "oreCoal", true).setInspiration(Blocks.COAL_ORE).setHarvestProperties("shovel", 0).setHardness(1.6f));
+		if (!ConfigManager.blacklist.contains("oreCoal")){
     		addSpawn(coal_gravel_ore,ConfigManager.weights.get("oreCoal"));
     	}
-    	if (!ConfigManager.blacklist.contains("oreIron")){
-    		blocks.add(iron_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "iron_gravel_ore", "oreIron", true).setHarvestProperties("shovel", 1).setHardness(2.2f));
+    	blocks.add(iron_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "iron_gravel_ore", "oreIron", true).setHarvestProperties("shovel", 1).setHardness(2.2f));
+		if (!ConfigManager.blacklist.contains("oreIron")){
     		addSpawn(iron_gravel_ore,ConfigManager.weights.get("oreIron"));
         }
-    	if (!ConfigManager.blacklist.contains("oreLapis")){
-    		blocks.add(lapis_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "lapis_gravel_ore", "oreLapis", true).setInspiration(Blocks.LAPIS_ORE).setHarvestProperties("shovel", 1).setHardness(2.0f));
+    	blocks.add(lapis_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "lapis_gravel_ore", "oreLapis", true).setInspiration(Blocks.LAPIS_ORE).setHarvestProperties("shovel", 1).setHardness(2.0f));
+		if (!ConfigManager.blacklist.contains("oreLapis")){
     		addSpawn(lapis_gravel_ore,ConfigManager.weights.get("oreLapis"));
         }
-    	if (!ConfigManager.blacklist.contains("oreGold")){
-    		blocks.add(gold_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "gold_gravel_ore", "oreGold", true).setHarvestProperties("shovel", 2).setHardness(2.4f));
+    	blocks.add(gold_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "gold_gravel_ore", "oreGold", true).setHarvestProperties("shovel", 2).setHardness(2.4f));
+		if (!ConfigManager.blacklist.contains("oreGold")){
     		addSpawn(gold_gravel_ore,ConfigManager.weights.get("oreGold"));
         }
-    	if (!ConfigManager.blacklist.contains("oreRedstone")){
-    		blocks.add(redstone_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "redstone_gravel_ore", "oreRedstone", true).setInspiration(Blocks.REDSTONE_ORE).setHarvestProperties("shovel", 2).setHardness(2.8f));
+    	blocks.add(redstone_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "redstone_gravel_ore", "oreRedstone", true).setInspiration(Blocks.REDSTONE_ORE).setHarvestProperties("shovel", 2).setHardness(2.8f));
+		if (!ConfigManager.blacklist.contains("oreRedstone")){
     		addSpawn(redstone_gravel_ore,ConfigManager.weights.get("oreRedstone"));
         }
-    	if (!ConfigManager.blacklist.contains("oreDiamond")){
-    		blocks.add(diamond_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "diamond_gravel_ore", "oreDiamond", true).setInspiration(Blocks.DIAMOND_ORE).setHarvestProperties("shovel", 2).setHardness(3.0f));
+		blocks.add(diamond_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "diamond_gravel_ore", "oreDiamond", true).setInspiration(Blocks.DIAMOND_ORE).setHarvestProperties("shovel", 2).setHardness(3.0f));
+		if (!ConfigManager.blacklist.contains("oreDiamond")){
     		addSpawn(diamond_gravel_ore,ConfigManager.weights.get("oreDiamond"));
         }
-    	if (!ConfigManager.blacklist.contains("oreEmerald")){
-    		blocks.add(emerald_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "emerald_gravel_ore", "oreEmerald", true).setInspiration(Blocks.EMERALD_ORE).setHarvestProperties("shovel", 2).setHardness(2.8f));
+    	blocks.add(emerald_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "emerald_gravel_ore", "oreEmerald", true).setInspiration(Blocks.EMERALD_ORE).setHarvestProperties("shovel", 2).setHardness(2.8f));
+		if (!ConfigManager.blacklist.contains("oreEmerald")){
     		addSpawn(emerald_gravel_ore,ConfigManager.weights.get("oreEmerald"));
         }
-    	if (!ConfigManager.blacklist.contains("oreTin")){
-    		if (OreDictionary.getOres("oreTin").size() > 0){
+    	if (OreDictionary.getOres("oreTin").size() > 0){
+    	    blocks.add(tin_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "tin_gravel_ore", "oreTin", true).setHarvestProperties("shovel", 0).setHardness(1.9f));
+        	if (!ConfigManager.blacklist.contains("oreTin")){
     			addSpawn(tin_gravel_ore,ConfigManager.weights.get("oreTin"));
     		}
-            blocks.add(tin_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "tin_gravel_ore", "oreTin", true).setHarvestProperties("shovel", 0).setHardness(1.9f));
-    	}
-    	if (!ConfigManager.blacklist.contains("oreNickel")){
-    		if (OreDictionary.getOres("oreNickel").size() > 0){
+        }
+    	if (OreDictionary.getOres("oreNickel").size() > 0){
+    		blocks.add(nickel_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "nickel_gravel_ore", "oreNickel", true).setHarvestProperties("shovel", 2).setHardness(2.5f));
+        	if (!ConfigManager.blacklist.contains("oreNickel")){
     			addSpawn(nickel_gravel_ore,ConfigManager.weights.get("oreNickel"));
     		}
-    		blocks.add(nickel_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "nickel_gravel_ore", "oreNickel", true).setHarvestProperties("shovel", 2).setHardness(2.5f));
     	}
-    	if (!ConfigManager.blacklist.contains("oreSilver")){
-    		if (OreDictionary.getOres("oreSilver").size() > 0){
+    	if (OreDictionary.getOres("oreSilver").size() > 0){
+    	    blocks.add(silver_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "silver_gravel_ore", "oreSilver", true).setHarvestProperties("shovel", 2).setHardness(2.6f));
+        	if (!ConfigManager.blacklist.contains("oreSilver")){
     			addSpawn(silver_gravel_ore,ConfigManager.weights.get("oreSilver"));
     		}
-            blocks.add(silver_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "silver_gravel_ore", "oreSilver", true).setHarvestProperties("shovel", 2).setHardness(2.6f));
-    	}
-    	if (!ConfigManager.blacklist.contains("oreLead")){
-    		if (OreDictionary.getOres("oreLead").size() > 0){
+        }
+    	if (OreDictionary.getOres("oreLead").size() > 0){
+    		blocks.add(lead_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "lead_gravel_ore", "oreLead", true).setHarvestProperties("shovel", 2).setHardness(2.6f));
+            if (!ConfigManager.blacklist.contains("oreLead")){
     			addSpawn(lead_gravel_ore,ConfigManager.weights.get("oreLead"));
     		}
-    		blocks.add(lead_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "lead_gravel_ore", "oreLead", true).setHarvestProperties("shovel", 2).setHardness(2.6f));
-        }
-    	if (OreDictionary.getOres("oreCopper").size() > 0 && !ConfigManager.blacklist.contains("oreCopper")){
-    		if (OreDictionary.getOres("oreCopper").size() > 0){
+    	}
+    	if (OreDictionary.getOres("oreCopper").size() > 0){
+    		blocks.add(copper_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "copper_gravel_ore", "oreCopper", true).setHarvestProperties("shovel", 0).setHardness(1.9f));
+        	if (!ConfigManager.blacklist.contains("oreCopper")){
     			addSpawn(copper_gravel_ore,ConfigManager.weights.get("oreCopper"));
     		}
-    		blocks.add(copper_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "copper_gravel_ore", "oreCopper", true).setHarvestProperties("shovel", 0).setHardness(1.9f));
     	}
     	
     	GameRegistry.registerWorldGenerator(new WorldGenGravelOres(), 100);
@@ -151,6 +146,9 @@ public class GravelOres
 				ItemStack test = entry.getKey().copy();
 				if (test.getItemDamage() == 32767){
 					test.setItemDamage(0);
+				}
+				if (test.isEmpty()) {
+					continue;
 				}
     			int[] oreKeys2 = OreDictionary.getOreIDs(test);
     			for (int k = 0; k < oreKeys1.length && doContinue; k ++){
