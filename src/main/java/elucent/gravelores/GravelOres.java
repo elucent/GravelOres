@@ -188,6 +188,10 @@ public class GravelOres {
 		for (Entry<ItemStack, ItemStack> entry : FurnaceRecipes.instance().getSmeltingList().entrySet()) {
 			// ensure damage is valid
 			ItemStack test = entry.getKey().copy();
+			// avoid invalid recipes
+			if (test.isEmpty()) {
+				continue;
+			}
 			if (test.getItemDamage() == OreDictionary.WILDCARD_VALUE) {
 				test.setItemDamage(0);
 			}
