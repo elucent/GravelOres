@@ -45,12 +45,12 @@ public class BlockGravelOre extends BlockFalling {
 	}
 
 	@Override
-	public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		if (dropCopier != null) {
-			return dropCopier.getDrops(world, pos, state, fortune);
+			dropCopier.getDrops(drops, world, pos, state, fortune);
 		}
 		else {
-			return super.getDrops(world, pos, state, fortune);
+			super.getDrops(drops, world, pos, state, fortune);
 		}
 	}
 
