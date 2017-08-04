@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 public class WorldGenGravelOres implements IWorldGenerator {
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-		if (world.provider.getDimensionType() == DimensionType.OVERWORLD) {
+		if (!GravelOres.spawns.isEmpty() && world.provider.getDimensionType() == DimensionType.OVERWORLD) {
 			if (random.nextInt(ConfigManager.orePileChance) == 0) {
 				Block b = GravelOres.spawns.get(random.nextInt(GravelOres.spawns.size()));
 				if (b != null) {
