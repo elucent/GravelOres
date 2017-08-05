@@ -36,7 +36,7 @@ import net.minecraftforge.oredict.OreDictionary;
 @Mod(modid = GravelOres.MODID, version = GravelOres.VERSION, dependencies = GravelOres.DEPENDENCIES)
 public class GravelOres {
 	public static final String MODID = "gravelores";
-	public static final String VERSION = "1.3";
+	public static final String VERSION = "${version}";
 	public static final String DEPENDENCIES = "after:*";
 
 	public static List<BlockGravelOre> blocks = new ArrayList<BlockGravelOre>();
