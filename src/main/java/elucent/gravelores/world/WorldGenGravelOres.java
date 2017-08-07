@@ -35,9 +35,10 @@ public class WorldGenGravelOres implements IWorldGenerator {
 						for (int i = 0; i < tries; i ++){
 							BlockPos pos = blocks.get(random.nextInt(blocks.size()));
 							EnumFacing face = EnumFacing.getFront(random.nextInt(6));
-							IBlockState state2 = world.getBlockState(pos.offset(face));
-							if (state2.getBlock() == Blocks.AIR || state2.getBlock().isReplaceable(world, top)){
-								blocks.add(pos.offset(face));
+							BlockPos replace = pos.offset(face);
+							IBlockState state2 = world.getBlockState(replace);
+							if (state2.getBlock() == Blocks.AIR || state2.getBlock().isReplaceable(world, replace)){
+								blocks.add(replace);
 							}
 						}
 						for (int i = 0; i < blocks.size(); i ++){
