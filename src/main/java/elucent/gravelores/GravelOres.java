@@ -21,7 +21,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -77,13 +76,6 @@ public class GravelOres {
 	public void registerItems(RegistryEvent.Register<Item> event) {
 		for (BlockGravelOre b : blocks) {
 			event.getRegistry().register(b.itemBlock);
-		}
-	}
-
-	@SubscribeEvent
-	public void registerRendering(ModelRegistryEvent event) {
-		for (BlockGravelOre block : blocks) {
-			block.initModel();
 		}
 	}
 
