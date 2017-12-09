@@ -171,7 +171,11 @@ public class GravelOres {
 
 				// add spawn if enabled
 				if (!ConfigManager.blacklist.contains(oreKey)) {
-					addSpawn(block, ConfigManager.weights.get(oreKey));
+					Integer weight = ConfigManager.weights.get(oreKey);
+					if(weight == null) {
+						weight = 10;
+					}
+					addSpawn(block, weight);
 				}
 
 				// we only need to find if we have an ore with the specific ID, so create a temporary hash map

@@ -56,7 +56,7 @@ public class ConfigManager {
 				"oreSilver:8",
 				"oreNickel:10",
 				"oreAluminum:12"
-		}, "The generation weight of each ore type. Ores like copper that may not exist in your instance, or blacklisted ores, will not be considered if not added by another mod. Follows the format \"<ore dictionary key>:<weight>\". Do NOT delete lines from this list.");
+		}, "The generation weight of each ore type. Ores like copper that may not exist in your instance, or blacklisted ores, will not be considered if not added by another mod. Follows the format \"<ore dictionary key>:<weight>\". If an ore is missing, it will default to 10.");
 
 		for (int i = 0; i < spawnWeights.length; i++) {
 			String[] parts = spawnWeights[i].split(":");
