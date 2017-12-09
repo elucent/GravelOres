@@ -1,10 +1,10 @@
 package elucent.gravelores;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -14,8 +14,12 @@ public class ConfigManager {
 	public static Configuration config;
 
 	//MOBS
-	public static List<String> blacklist = new ArrayList<String>();
+	public static Set<String> blacklist = new HashSet<>();
 	public static Map<String, Integer> weights = new HashMap<String, Integer>();
+	public static boolean hasBiomeWhitelist = false;
+	public static boolean hasBiomeBlacklist = false;
+	public static Set<String> biomeWhitelist = new HashSet<>();
+	public static Set<String> biomeBlacklist = new HashSet<>();
 
 	public static int orePileChance = 20;
 
@@ -41,6 +45,19 @@ public class ConfigManager {
 		for (String s : blist) {
 			blacklist.add(s);
 		}
+
+		String[] biomeBlackarray = config.getStringList("biomeTypeBlacklist", "ores", new String[] {"OCEAN", "RIVER"},
+				"A list of biome types (for example, OCEAN or PLAINS) to not generate gravel ores in. Ignored if empty. See the Forge BiomeDictionary for valid names");
+		for (String s : biomeBlackarray) {
+			biomeBlacklist.add(s.toUpperCase());
+		}
+		hasBiomeBlacklist = !biomeBlacklist.isEmpty();
+		String[] biomeWhitearray = config.getStringList("biomeTypeWhitelist", "ores", new String[0],
+				"A list of biome types (for example, OCEAN or PLAINS) to require to generate ores. Ignored if empty. See the Forge BiomeDictionary for valid names");
+		for (String s : biomeWhitearray) {
+			biomeWhitelist.add(s.toUpperCase());
+		}
+		hasBiomeWhitelist = !biomeWhitelist.isEmpty();
 
 		String[] spawnWeights = config.getStringList("spawnWeights", "ores", new String[] {
 				"oreCoal:16",

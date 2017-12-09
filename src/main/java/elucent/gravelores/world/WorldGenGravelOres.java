@@ -8,13 +8,13 @@ import elucent.gravelores.ConfigManager;
 import elucent.gravelores.GravelOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenGravelOres implements IWorldGenerator {
@@ -28,10 +28,14 @@ public class WorldGenGravelOres implements IWorldGenerator {
 					int xx = chunkX * 16 + 8 + random.nextInt(16);
 					int zz = chunkZ * 16 + 8 + random.nextInt(16);
 					BlockPos top = world.getTopSolidOrLiquidBlock(new BlockPos(xx, 64, zz));
+					// the boolean saves a biome lookup if we do not use the biome list
+					if(biomeBlacklisted(world, top)) {
+						return;
+					}
 					// relative position and the one below
 					IBlockState state = world.getBlockState(top);
 					IBlockState below = world.getBlockState(top.down());
-					if (state.getBlock() != Blocks.WATER && below.isOpaqueCube() && state.getBlock().isReplaceable(world, top)) {
+					if (below.isOpaqueCube() && state.getBlock().isReplaceable(world, top)) {
 						int tries = ConfigManager.orePileMinSize + random.nextInt(ConfigManager.orePileMaxSize - ConfigManager.orePileMinSize);
 						List<BlockPos> blocks = new ArrayList<BlockPos>();
 						blocks.add(top);
@@ -56,6 +60,18 @@ public class WorldGenGravelOres implements IWorldGenerator {
 				}
 			}
 		}
+	}
+
+	private static boolean biomeBlacklisted(World world, BlockPos pos) {
+		// saves a biome lookup if we have no blacklist/whitelist
+		if(!ConfigManager.hasBiomeBlacklist && !ConfigManager.hasBiomeWhitelist) {
+			return false;
+		}
+		// we use types to be eaiser to extend, just check if any of the biome's types match any in the list
+		return BiomeDictionary.getTypes(world.getBiome(pos)).stream()
+				// just check if any are blacklisted or if we have a whitelist and its not whitelisted
+				.anyMatch((type) -> ConfigManager.biomeBlacklist.contains(type.getName())
+					|| (ConfigManager.hasBiomeWhitelist && !ConfigManager.biomeWhitelist.contains(type.getName())));
 	}
 
 }
