@@ -10,6 +10,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import elucent.gravelores.block.BlockExtraGravelOre;
 import elucent.gravelores.block.BlockGravelOre;
 import elucent.gravelores.proxy.CommonProxy;
 import elucent.gravelores.world.WorldGenGravelOres;
@@ -40,6 +41,7 @@ public class GravelOres {
 	public static final String DEPENDENCIES = "after:*";
 
 	public static List<BlockGravelOre> blocks = new ArrayList<BlockGravelOre>();
+	public static List<BlockGravelOre> extraBlocks = new ArrayList<BlockGravelOre>();
 
 	public static List<BlockGravelOre> spawns = new ArrayList<BlockGravelOre>();
 
@@ -148,6 +150,31 @@ public class GravelOres {
 		blocks.add(aluminum_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "aluminum_gravel_ore", "oreAluminum", true)
 				.setHarvestProperties("shovel", 0).setHardness(1.9f));
 
+		// extra ores
+		for(String s : ConfigManager.extraBlocks) {
+			String[] parts = s.split(":");
+			// ensure length
+			if(parts.length != 2) {
+				log.error("Invalid extra ore entry '{}': should be in the format 'name:color'", s);
+				continue;
+			} else if(!parts[0].matches("^[A-Za-z0-9]+$")) {
+				log.error("Invalid extra ore entry '{}': name can only contain letters and numbers", s, parts[0]);
+				continue;
+			}
+
+			try {
+				int color = Integer.parseInt(parts[1], 16);
+				// capitalize first letter
+				String name = parts[0].substring(0, 1).toUpperCase() + parts[0].substring(1);
+				BlockExtraGravelOre block = new BlockExtraGravelOre(GRAVEL_ORE, name, color);
+				blocks.add(block);
+				extraBlocks.add(block);
+			} catch(NumberFormatException e) {
+				// ensure number
+				log.error("Invalid extra ore entry '{}': color must be a six digit hex", s, parts[1]);
+			}
+		}
+
 		GameRegistry.registerWorldGenerator(new WorldGenGravelOres(), 88);
 	}
 
@@ -164,8 +191,9 @@ public class GravelOres {
 		Map<Integer, BlockGravelOre> furnaceOres = new HashMap<>(blocks.size());
 		for (BlockGravelOre block : blocks) {
 			String oreKey = block.oreKey;
-			// ensure the ore exists
-			if(!OreDictionary.getOres(oreKey, false).isEmpty()) {
+			// ensure the ore exists, but always add the extra ores
+			boolean hasOreDict = !OreDictionary.getOres(oreKey, false).isEmpty();
+			if(extraBlocks.contains(block) || hasOreDict) {
 				// we only register the oredict if someone else aready registered it
 				OreDictionary.registerOre(oreKey, block);
 
@@ -179,7 +207,9 @@ public class GravelOres {
 				}
 
 				// we only need to find if we have an ore with the specific ID, so create a temporary hash map
-				furnaceOres.put(OreDictionary.getOreID(oreKey), block);
+				if(hasOreDict) {
+					furnaceOres.put(OreDictionary.getOreID(oreKey), block);
+				}
 			}
 			else {
 				// if not, hide it from Creative

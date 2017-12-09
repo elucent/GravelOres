@@ -1,0 +1,10 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+      "model": "gravelores:extra_gravel_ore"
+    },
+    "variants": {
+      "normal": [{}],
+      "inventory": [{}]
+    }
+}
