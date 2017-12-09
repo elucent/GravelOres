@@ -2,9 +2,11 @@ package elucent.gravelores;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
@@ -21,6 +23,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -39,8 +42,9 @@ public class GravelOres {
 	public static final String VERSION = "${version}";
 	public static final String DEPENDENCIES = "after:*";
 
-	public static List<BlockGravelOre> blocks = new ArrayList<BlockGravelOre>();
-	public static List<BlockGravelOre> extraBlocks = new ArrayList<BlockGravelOre>();
+	public static List<BlockGravelOre> blocks = new ArrayList<>();
+	public static List<BlockGravelOre> extraBlocks = new ArrayList<>();
+	public static List<Pair<BlockGravelOre, String>> extraBlocksInspirations = new ArrayList<>();
 
 	public static List<BlockGravelOre> spawns = new ArrayList<BlockGravelOre>();
 
@@ -81,6 +85,8 @@ public class GravelOres {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		addReferenceProperties();
+
 		proxy.init(event);
 	}
 
@@ -143,31 +149,83 @@ public class GravelOres {
 				.setHarvestProperties("shovel", 0).setHardness(1.9f));
 
 		// extra ores
+		Set<String> seen = new HashSet<>();
 		for(String s : ConfigManager.extraBlocks) {
 			String[] parts = s.split(":");
 			// ensure length
-			if(parts.length != 2) {
-				log.error("Invalid extra ore entry '{}': should be in the format 'name:color'", s);
+			if(parts.length != 4 && parts.length != 6 && parts.length != 7) {
+				log.error("Invalid extra ore entry '{}': should be in the format 'name:color:harvestLevel:resistance' or 'name:color:harvestLevel:resistance:modid:baseore:meta'", s);
 				continue;
 			} else if(!parts[0].matches("^[A-Za-z0-9]+$")) {
-				log.error("Invalid extra ore entry '{}': name can only contain letters and numbers", s, parts[0]);
+				log.error("Invalid extra ore entry '{}': name can only contain letters and numbers", s);
+				continue;
+			} else if(seen.contains(parts[0].toLowerCase())) {
+				log.error("Invalid extra ore entry '{}': duplicate name {}", s, parts[0]);
 				continue;
 			}
 
+			// store the last part of the string for later
+			String dropString = null;
+			if(parts.length > 5) {
+				dropString = parts[4] + ":" + parts[5];
+				if(parts.length == 7) {
+					dropString += ":" + parts[6];
+				}
+			}
+
 			try {
+				// ensure all numbers are valid
 				int color = Integer.parseInt(parts[1], 16);
+				int harvestLevel = Integer.parseInt(parts[2]);
+				float hardness = Float.parseFloat(parts[3]);
+
 				// capitalize first letter
 				String name = parts[0].substring(0, 1).toUpperCase() + parts[0].substring(1);
-				BlockExtraGravelOre block = new BlockExtraGravelOre(GRAVEL_ORE, name, color);
+				BlockGravelOre block = new BlockExtraGravelOre(GRAVEL_ORE, name, color).setHarvestProperties("shovel", harvestLevel).setHardness(hardness);
 				blocks.add(block);
 				extraBlocks.add(block);
+				extraBlocksInspirations.add(Pair.of(block, dropString));
+				seen.add(name.toLowerCase());
 			} catch(NumberFormatException e) {
-				// ensure number
-				log.error("Invalid extra ore entry '{}': color must be a six digit hex", s, parts[1]);
+				// invalid number
+				log.error("Invalid extra ore entry '{}': color must be a six digit hex, harvest level an integer, and hardness a float", s, parts[1]);
 			}
 		}
 
 		GameRegistry.registerWorldGenerator(new WorldGenGravelOres(), 88);
+	}
+
+	// run in init so the blocks are registered
+	@SuppressWarnings("deprecation")
+	private static void addReferenceProperties() {
+		for(Pair<BlockGravelOre, String> pair : extraBlocksInspirations) {
+			if(pair.getRight() == null) {
+				continue;
+			}
+			String[] parts = pair.getRight().split(":");
+
+			BlockGravelOre ore = pair.getLeft();
+			Block block = GameRegistry.findRegistry(Block.class).getValue(new ResourceLocation(parts[0], parts[1]));
+			if(block == null) {
+				log.warn("Failed to add drops for {}: failed to find block '{}'", ore.getRegistryName(), pair.getRight());
+				continue;
+			}
+
+			int meta = 0;
+			if(parts.length > 2) {
+				try {
+					meta = Integer.parseInt(parts[2]);
+				} catch(NumberFormatException e) {
+					// ensure number
+					log.error("Failed to add drops for {}: invalid metadata {}", ore.getRegistryName(), parts[2]);
+					continue;
+				}
+			}
+
+			// set the harvest level and mining level from the reference
+			ore.setInspiration(block.getStateFromMeta(meta));
+		}
+		extraBlocksInspirations = null;
 	}
 
 	/**

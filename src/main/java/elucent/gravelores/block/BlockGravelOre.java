@@ -20,7 +20,7 @@ import net.minecraftforge.client.model.ModelLoader;
 
 public class BlockGravelOre extends BlockFalling {
 	public Item itemBlock = null;
-	private Block dropCopier = null;
+	private IBlockState dropCopier = null;
 	public String oreKey = "";
 	private boolean hidden;
 
@@ -40,6 +40,11 @@ public class BlockGravelOre extends BlockFalling {
 	}
 
 	public BlockGravelOre setInspiration(Block b) {
+		this.dropCopier = b.getDefaultState();
+		return this;
+	}
+
+	public BlockGravelOre setInspiration(IBlockState b) {
 		this.dropCopier = b;
 		return this;
 	}
@@ -47,7 +52,7 @@ public class BlockGravelOre extends BlockFalling {
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
 		if (dropCopier != null) {
-			dropCopier.getDrops(drops, world, pos, state, fortune);
+			dropCopier.getBlock().getDrops(drops, world, pos, dropCopier, fortune);
 		}
 		else {
 			super.getDrops(drops, world, pos, state, fortune);

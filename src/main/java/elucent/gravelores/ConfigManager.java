@@ -96,7 +96,7 @@ public class ConfigManager {
 				"If true, falling gravel ores drop items if they are unable to land (e.g. falls on a torch). Defaults to false which prevents working around harvest levels.");
 
 		extraBlocks = config.getStringList("extraBlocks", "ores", new String[0],
-				"Additional gravel ores to add. Should be in the format of 'oreName:color'. You will need to provide localizations in the form of 'tile.extra_gravel_ore.oreName.name', but they will automatically be oredicted with a prefix of 'ore'");
+				"Additional gravel ores to add. Should be in the format of 'oreName:color:miningLevel:hardness' or 'oreName:color:miningLevel:hardness:modid:baseore:meta'. You will need to provide localizations in the form of 'tile.extra_gravel_ore.oreName.name', but they will automatically be oredicted with a prefix of 'ore'");
 
 		if (config.hasChanged()) {
 			config.save();
