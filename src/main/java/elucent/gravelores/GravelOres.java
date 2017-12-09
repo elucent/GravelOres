@@ -44,7 +44,7 @@ public class GravelOres {
 	public static List<BlockGravelOre> spawns = new ArrayList<BlockGravelOre>();
 
 	public static BlockGravelOre iron_gravel_ore, coal_gravel_ore, redstone_gravel_ore, gold_gravel_ore, emerald_gravel_ore, lapis_gravel_ore,
-			diamond_gravel_ore, copper_gravel_ore, lead_gravel_ore, tin_gravel_ore, silver_gravel_ore, nickel_gravel_ore;
+			diamond_gravel_ore, copper_gravel_ore, lead_gravel_ore, tin_gravel_ore, silver_gravel_ore, nickel_gravel_ore, aluminum_gravel_ore;
 
 	public static Material GRAVEL_ORE;
 
@@ -143,6 +143,9 @@ public class GravelOres {
 				.setHarvestProperties("shovel", 2).setHardness(2.6f));
 
 		blocks.add(copper_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "copper_gravel_ore", "oreCopper", true)
+				.setHarvestProperties("shovel", 0).setHardness(1.9f));
+
+		blocks.add(aluminum_gravel_ore = new BlockGravelOre(GRAVEL_ORE, "aluminum_gravel_ore", "oreAluminum", true)
 				.setHarvestProperties("shovel", 0).setHardness(1.9f));
 
 		GameRegistry.registerWorldGenerator(new WorldGenGravelOres(), 88);

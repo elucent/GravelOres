@@ -54,7 +54,8 @@ public class ConfigManager {
 				"oreTin:14",
 				"oreLead:10",
 				"oreSilver:8",
-				"oreNickel:10"
+				"oreNickel:10",
+				"oreAluminum:12"
 		}, "The generation weight of each ore type. Ores like copper that may not exist in your instance, or blacklisted ores, will not be considered if not added by another mod. Follows the format \"<ore dictionary key>:<weight>\". Do NOT delete lines from this list.");
 
 		for (int i = 0; i < spawnWeights.length; i++) {
