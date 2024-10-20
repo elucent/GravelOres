@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "gravelores:blocks/tin_gravel_ore",
-        "particle": "gravelores:blocks/tin_gravel_ore"
+        "all": "gravelores:block/tin_gravel_ore",
+        "particle": "gravelores:block/tin_gravel_ore"
     }
 }

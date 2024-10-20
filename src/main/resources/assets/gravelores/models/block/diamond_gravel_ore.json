@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "gravelores:blocks/diamond_gravel_ore",
-        "particle": "gravelores:blocks/diamond_gravel_ore"
+        "all": "gravelores:block/diamond_gravel_ore",
+        "particle": "gravelores:block/diamond_gravel_ore"
     }
 }

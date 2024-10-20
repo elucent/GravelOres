@@ -1,7 +1,3 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "gravelores:blocks/copper_gravel_ore",
-        "particle": "gravelores:blocks/copper_gravel_ore"
-    }
+    "parent": "gravelores:block/copper_gravel_ore"
 }

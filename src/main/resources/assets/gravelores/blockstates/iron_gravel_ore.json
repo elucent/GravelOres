@@ -1,5 +1,5 @@
 {
     "variants":{
-        "normal":{"model": "gravelores:iron_gravel_ore"}
+        "":{"model": "gravelores:block/iron_gravel_ore"}
     }
 }
