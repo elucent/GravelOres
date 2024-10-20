@@ -1,0 +1,1 @@
+This folder contains files created automatically using python scripts for the sake of saving effort. If you are modifying the code, don't change these contents without updating the scripts under src/main/python/

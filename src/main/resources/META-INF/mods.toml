@@ -1,0 +1,24 @@
+modLoader="lowcodefml"
+loaderVersion="[47,)"
+issueTrackerURL="https://github.com/elucent/GravelOres/issues"
+license="MIT"
+[[mods]]
+    modId="gravelores"
+    version="2.0"
+    displayName="Gravel Ores"
+    logoFile="pack.png"
+    description='''
+    Adds gravel versions of vanilla and various modded ores that spawn in your world, as a means of gathering such resources without long mining trips
+    '''
+[[dependencies.gravelores]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.0.0,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.gravelores]]
+    modId="jsonthings"
+    mandatory=true
+    versionRange="[0.9.4,)"
+    ordering="NONE"
+    side="BOTH"
