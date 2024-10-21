@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:gravel",
+  "type": "falling",
+  "dust_color": {
+    "r": 128, "g": 124, "b": 133
+  },
+  "map_color": "stone",
+  "sound_type": "gravel",
+  "destroy_time": 3,
+  "requires_tool_for_drops": true,
+  "explosion_resistance": 1,
+  "item": {
+    "group": "gravelores:gravelores"
+  }
+}
