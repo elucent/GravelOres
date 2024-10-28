@@ -1,9 +1,9 @@
 {
-  "feature": "gravelores:iron_gravel_ore_pile",
+  "feature": "gravelores:redstone_gravel_ore_pile",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 250
+      "chance": 700
     },
     {
       "type": "minecraft:in_square"

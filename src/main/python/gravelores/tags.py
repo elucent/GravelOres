@@ -22,7 +22,7 @@ class TagGenerator:
         self.time = 0
     
     def __enter__(self) -> "ModelGenerator":
-        logging.info("Starting loot table generation")
+        logging.info("Starting tag generation")
         self.time = perf_counter()
         return self
     

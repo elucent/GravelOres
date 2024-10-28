@@ -4,7 +4,7 @@
     "state_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "gravelores:iron_gravel_ore"
+        "Name": "gravelores:emerald_gravel_ore"
       }
     }
   }

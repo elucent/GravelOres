@@ -1,0 +1,11 @@
+{
+  "values": [
+    "gravelores:copper_gravel_ore_pile",
+    "gravelores:iron_gravel_ore_pile",
+    "gravelores:gold_gravel_ore_pile",
+    "gravelores:diamond_gravel_ore_pile",
+    "gravelores:coal_gravel_ore_pile",
+    "gravelores:redstone_gravel_ore_pile",
+    "gravelores:lapis_gravel_ore_pile"
+  ]
+}
