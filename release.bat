@@ -5,7 +5,9 @@ IF EXIST "Gravel-Ores-#.#.#.jar" DEL "Gravel-Ores-#.#.#.jar"
 MKDIR build
 
 REM Copy required files into build directory
-XCOPY src\generated\resources build /s /i /q /exclude:pack.mcmeta
+XCOPY src\generated\resources build /s /i /q
+DEL build\pack.mcmeta
+DEL build\cache.json
 XCOPY src\main\resources build /s /i /q
 
 REM Zipping contents
