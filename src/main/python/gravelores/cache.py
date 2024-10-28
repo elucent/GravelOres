@@ -80,7 +80,7 @@ class CachedOutput:
         self.isDirty = False
         self.oldSize = len(self.cache)
     
-    def saveText(self, contents: str, path: str, *suffix: str) -> None:
+    def saveText(self, contents: str, path: str, *suffix: str, extension: str = None) -> None:
         """
         Saves a text file at the given path, assuming the file does not already exist with those contents.
         :param contents:  Text contents to save.
@@ -89,6 +89,9 @@ class CachedOutput:
         """
         if len(suffix) > 0:
             path = join(path, *suffix)
+        # makes default extensions easier
+        if extension is not None:
+            path += extension
         
         # ensure no duplicate files
         if path in self.currentFiles:
@@ -117,11 +120,11 @@ class CachedOutput:
         else:
             logging.debug(f"Skipping saving {path} as the file is unchanged")
     
-    def saveJson(self, contents: Dict, path: str, *suffix: str) -> None:
+    def saveJson(self, contents: Dict, path: str, *suffix: str, extension: str = ".json") -> None:
         """
         Saves a json object at the given path, assuming the file does not already exist with those contents.
         :param contents:  JSON object to save.
         :param path:      Ourput path
         :param suffix:    Additional path elements to use in os.path.join.
         """
-        self.saveText(json.dumps(contents, indent = 2, sort_keys = True), path, *suffix)
+        self.saveText(json.dumps(contents, indent = 2, sort_keys = True), path, *suffix, extension = extension)

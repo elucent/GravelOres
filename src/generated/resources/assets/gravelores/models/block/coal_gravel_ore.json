@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "gravelores:block/coal_gravel_ore"
+  }
+}
