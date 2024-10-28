@@ -25,5 +25,14 @@
   "assets/gravelores/models/item/iron_gravel_ore.json": "fef9d3a1a0ba8299b1149b2b640f6b7be432796f6eb43ab815d52620235ff42b",
   "assets/gravelores/models/item/lapis_gravel_ore.json": "aeaad19d7638401ad9bc50c377cd73124f445e56b639241b1385bfeda4801045",
   "assets/gravelores/models/item/quartz_gravel_ore.json": "46e746b96f6105813275dd9747f4a4c372d5dd931b2a5fde58706af2ae9e02a1",
-  "assets/gravelores/models/item/redstone_gravel_ore.json": "f1bfa479928ca786a4895cd72a1863c385b66ac92829e1bc5f9ac97981bba48a"
+  "assets/gravelores/models/item/redstone_gravel_ore.json": "f1bfa479928ca786a4895cd72a1863c385b66ac92829e1bc5f9ac97981bba48a",
+  "things/gravelores/block/coal_gravel_ore.json": "cb0aa12af4ba9d8ae2397c8ce18d39b0b8db980bea34ebaf3244f90beccdf6a2",
+  "things/gravelores/block/copper_gravel_ore.json": "cb0aa12af4ba9d8ae2397c8ce18d39b0b8db980bea34ebaf3244f90beccdf6a2",
+  "things/gravelores/block/diamond_gravel_ore.json": "cb0aa12af4ba9d8ae2397c8ce18d39b0b8db980bea34ebaf3244f90beccdf6a2",
+  "things/gravelores/block/emerald_gravel_ore.json": "cb0aa12af4ba9d8ae2397c8ce18d39b0b8db980bea34ebaf3244f90beccdf6a2",
+  "things/gravelores/block/gold_gravel_ore.json": "cb0aa12af4ba9d8ae2397c8ce18d39b0b8db980bea34ebaf3244f90beccdf6a2",
+  "things/gravelores/block/iron_gravel_ore.json": "cb0aa12af4ba9d8ae2397c8ce18d39b0b8db980bea34ebaf3244f90beccdf6a2",
+  "things/gravelores/block/lapis_gravel_ore.json": "cb0aa12af4ba9d8ae2397c8ce18d39b0b8db980bea34ebaf3244f90beccdf6a2",
+  "things/gravelores/block/quartz_gravel_ore.json": "cb0aa12af4ba9d8ae2397c8ce18d39b0b8db980bea34ebaf3244f90beccdf6a2",
+  "things/gravelores/block/redstone_gravel_ore.json": "cb0aa12af4ba9d8ae2397c8ce18d39b0b8db980bea34ebaf3244f90beccdf6a2"
 }

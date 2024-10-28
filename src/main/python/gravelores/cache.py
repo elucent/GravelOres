@@ -39,8 +39,8 @@ class CachedOutput:
     """Mapping of root relative paths to their last hash"""
     currentFiles: Set[str]
     """Any paths that were created in the current run. Used to identify stale files from the cache."""
-    isDirty: bool
-    """If true, then at least 1 file was created or modified. Saves recreating the cache file if not needed"""    
+    updatedFiles: int
+    """Number of files that were changed"""    
 
     def __init__(self, rootFolder: str):
         self.rootFolder = rootFolder
@@ -55,7 +55,7 @@ class CachedOutput:
             self.cache = dict()
             self.oldSize = 0
         self.currentFiles = set()
-        self.isDirty = False
+        self.updatedFiles = 0
     
     def finalize(self) -> None:
         """
@@ -70,14 +70,14 @@ class CachedOutput:
         assert len(self.cache) == len(self.currentFiles)
         
         # save cache dictionary, assuming something changed
-        if len(missingPaths) > 0 or self.isDirty:
+        if len(missingPaths) > 0 or self.updatedFiles > 0:
             with open(self.cacheFilePath, "w") as f:
                 json.dump(self.cache, f, indent = 2, sort_keys = True)
-        logging.info(f"Cache updated from {self.oldSize} files to {len(self.currentFiles)} with {len(missingPaths)} deletions")
+        logging.info(f"Cache updated from {self.oldSize} files to {len(self.currentFiles)}. Modified {self.updatedFiles} files with {len(missingPaths)} deletions")
         
         # reset state in case we finalize again
         self.currentFiles = set()
-        self.isDirty = False
+        self.updatedFiles = 0
         self.oldSize = len(self.cache)
     
     def saveText(self, contents: str, path: str, *suffix: str, extension: str = None) -> None:
@@ -110,7 +110,7 @@ class CachedOutput:
         if oldhash is None or oldhash != newhash:
             # update hash for later save
             self.cache[path] = newhash
-            self.isDirty = True
+            self.updatedFiles += 1
             
             outputPath = join(self.rootFolder, path)
             os.makedirs(os.path.dirname(outputPath), exist_ok=True)
@@ -120,11 +120,12 @@ class CachedOutput:
         else:
             logging.debug(f"Skipping saving {path} as the file is unchanged")
     
-    def saveJson(self, contents: Dict, path: str, *suffix: str, extension: str = ".json") -> None:
+    def saveJson(self, contents: Dict, path: str, *suffix: str, extension: str = ".json",
+                 sortKeys: bool = True) -> None:
         """
         Saves a json object at the given path, assuming the file does not already exist with those contents.
         :param contents:  JSON object to save.
         :param path:      Ourput path
         :param suffix:    Additional path elements to use in os.path.join.
         """
-        self.saveText(json.dumps(contents, indent = 2, sort_keys = True), path, *suffix, extension = extension)
+        self.saveText(json.dumps(contents, indent = 2, sort_keys = sortKeys), path, *suffix, extension = extension)

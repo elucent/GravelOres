@@ -2,6 +2,8 @@ import logging
 from time import perf_counter
 from gravelores.cache import CachedOutput
 from gravelores.logger import setupLogging
+
+from gravelores.blocks import BlockGenerator
 from gravelores.models import ModelGenerator
 
 
@@ -13,6 +15,9 @@ LOG_PATH = "../../../run/logs"
 
 MOD_ID = "gravelores"
 """Mod ID for all resources generated"""
+
+ITEM_GROUP = MOD_ID+":"+MOD_ID
+"""Creative tab for items"""
 
 
 ORES = {
@@ -31,10 +36,6 @@ ORES = {
 }
 """General config for all datagen to run, puts it in one nice spot"""
 
-def blockName(variant: str) -> str:
-    """Maps a variant name to a block ID, saves writing `_gravel_ore` everywhere."""
-    return variant + "_gravel_ore"
-
 if __name__ == "__main__":
     # setup datagen, run everything below these lines
     startTime = perf_counter()
@@ -42,9 +43,17 @@ if __name__ == "__main__":
     cache = CachedOutput(ROOT_PATH)
     # end setup, start of mod specific code
     
+    # saves writing `_gravel_ore` everywhere
+    for variant, data in ORES.items():
+        data["name"] = variant + "_gravel_ore" 
+    
     with ModelGenerator(cache) as gen:
-        for variant in ORES.keys():
-            gen.blockCubeAll(MOD_ID, blockName(variant))
+        for data in ORES.values():
+            gen.blockCubeAll(MOD_ID, data["name"])
+    
+    with BlockGenerator(cache) as gen:
+        for data in ORES.values():
+            gen.gravelBlock(MOD_ID, data["name"], itemGroup=ITEM_GROUP)
     
     # end of datagen, save the cache file
     cache.finalize()
