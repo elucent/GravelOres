@@ -4,6 +4,7 @@ from gravelores.cache import CachedOutput
 from gravelores.logger import setupLogging
 
 from gravelores.blocks import BlockGenerator
+from gravelores.loot import LootTableGenerator
 from gravelores.models import ModelGenerator
 
 
@@ -22,17 +23,45 @@ ITEM_GROUP = MOD_ID+":"+MOD_ID
 
 ORES = {
     # metals
-    "copper": {},
-    "iron": {},
-    "gold": {},
+    "copper": {
+        "drop": {
+            "drop": "minecraft:raw_copper",
+            "count": (2, 5)
+        }
+    },
+    "iron": {
+        "drop": "minecraft:raw_iron"
+    },
+    "gold": {
+        "drop": "minecraft:raw_gold"
+    },
     # gems
-    "diamond": {},
-    "emerald": {},
-    "quartz": {},
+    "diamond": {
+        "drop": "minecraft:diamond"
+    },
+    "emerald": {
+        "drop": "minecraft:emerald"
+    },
+    "quartz": {
+        "drop": "minecraft:quartz"
+    },
     # other
-    "coal": {},
-    "redstone": {},
-    "lapis": {}
+    "coal": {
+        "drop": "minecraft:coal"
+    },
+    "redstone": {
+        "drop": {
+            "drop": "minecraft:redstone",
+            "count": (4, 5),
+            "flatBonus": True
+        }
+    },
+    "lapis": {
+        "drop": {
+            "drop": "minecraft:lapis_lazuli",
+            "count": (4, 9)
+        }
+    }
 }
 """General config for all datagen to run, puts it in one nice spot"""
 
@@ -54,6 +83,14 @@ if __name__ == "__main__":
     with BlockGenerator(cache) as gen:
         for data in ORES.values():
             gen.gravelBlock(MOD_ID, data["name"], itemGroup=ITEM_GROUP)
+    
+    with LootTableGenerator(cache) as gen:
+        for data in ORES.values():
+            drop = data["drop"]
+            if isinstance(drop, dict):
+                gen.oreBlock(MOD_ID, data["name"], **drop)
+            else:
+                gen.oreBlock(MOD_ID, data["name"], drop=drop)
     
     # end of datagen, save the cache file
     cache.finalize()

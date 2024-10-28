@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "gravelores:iron_gravel_ore"
+              "name": "gravelores:emerald_gravel_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:raw_iron"
+              "name": "minecraft:emerald"
             }
           ]
         }
@@ -46,5 +46,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "gravelores:blocks/iron_gravel_ore"
+  "random_sequence": "gravelores:blocks/emerald_gravel_ore"
 }
