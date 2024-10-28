@@ -1,3 +1,5 @@
+import logging
+from time import perf_counter
 from gravelores.cache import CachedOutput
 from gravelores.logger import setupLogging
 from gravelores.models import ModelGenerator
@@ -35,6 +37,7 @@ def blockName(variant: str) -> str:
 
 if __name__ == "__main__":
     # setup datagen, run everything below these lines
+    startTime = perf_counter()
     setupLogging(LOG_PATH, debug=False)
     cache = CachedOutput(ROOT_PATH)
     # end setup, start of mod specific code
@@ -45,3 +48,4 @@ if __name__ == "__main__":
     
     # end of datagen, save the cache file
     cache.finalize()
+    logging.info(f"Finished running datagen in {perf_counter() - startTime} seconds")

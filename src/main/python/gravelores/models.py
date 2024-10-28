@@ -1,4 +1,5 @@
 import logging
+from time import perf_counter
 from .cache import CachedOutput
 
 ASSET_ROOT = "assets"
@@ -21,13 +22,16 @@ class ModelGenerator:
         self.blockstates = 0
         self.items = 0
         self.blocks = 0
+        self.time = 0
     
     def __enter__(self) -> "ModelGenerator":
         logging.info("Starting model generation")
+        self.time = perf_counter()
         return self
     
     def __exit__(self, exc_type, exc_value, traceback) -> bool:
-        logging.info(f"Generated {self.blockstates} blockstates, {self.blocks} block models, and {self.items} item models")
+        self.time = perf_counter() - self.time
+        logging.info(f"Generated {self.blockstates} blockstates, {self.blocks} block models, and {self.items} item models in {self.time} seconds")
         return False
     
     

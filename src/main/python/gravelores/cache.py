@@ -73,7 +73,7 @@ class CachedOutput:
         if len(missingPaths) > 0 or self.isDirty:
             with open(self.cacheFilePath, "w") as f:
                 json.dump(self.cache, f, indent = 2, sort_keys = True)
-        logging.info(f"Finished running datagen. Updated from {self.oldSize} files to {len(self.currentFiles)} with {len(missingPaths)} deletions")
+        logging.info(f"Cache updated from {self.oldSize} files to {len(self.currentFiles)} with {len(missingPaths)} deletions")
         
         # reset state in case we finalize again
         self.currentFiles = set()
