@@ -1,0 +1,15 @@
+{
+  "type": "forge:add_features",
+  "biomes": {
+    "type": "forge:and",
+    "values": [
+      "#minecraft:is_nether",
+      {
+        "type": "forge:not",
+        "value": "#gravelores:nether_blacklist"
+      }
+    ]
+  },
+  "features": "#gravelores:nether_piles",
+  "step": "underground_ores"
+}

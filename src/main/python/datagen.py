@@ -41,7 +41,8 @@ ORES = {
     "gold": {
         "drop": "minecraft:raw_gold",
         "tier": "iron",
-        "overworld_chance": 450  # 50 + 4 (buried) + 1 (buried)
+        "overworld_chance": 450,  # 50 + 4 (buried) + 1 (buried)
+        "nether_chance": 70  # 20 + 10
     },
     # gems
     "diamond": {
@@ -56,7 +57,8 @@ ORES = {
         "custom_biomes": True
     },
     "quartz": {
-        "drop": "minecraft:quartz"
+        "drop": "minecraft:quartz",
+        "nether_chance": 50  # 32 + 16
     },
     # other
     "coal": {
@@ -95,6 +97,7 @@ if __name__ == "__main__":
         data["name"] = variant + "_gravel_ore"
         data["pile"] = data["name"] + "_pile"
         data["id"] = MOD_ID + ":" + data["name"]
+        data["pile_id"] = MOD_ID + ":" + data["pile"]
     
     with ModelGenerator(cache) as gen:
         for data in ORES.values():
@@ -116,6 +119,8 @@ if __name__ == "__main__":
         for data in ORES.values():
             if "overworld_chance" in data:
                 gen.addPile(MOD_ID, data["pile"], data["id"], data["overworld_chance"])
+            if "nether_chance" in data:
+                gen.addPileNether(MOD_ID, data["pile"], data["id"], data["nether_chance"])
     
     with TagGenerator(cache) as gen:
         gen.add("blocks", "minecraft", "mineable/shovel", *[data["id"] for data in ORES.values()])
@@ -123,7 +128,10 @@ if __name__ == "__main__":
             if "tier" in data:
                 gen.add("blocks", "minecraft", f"needs_{data['tier']}_tool", data["id"])
             if "overworld_chance" in data and not "custom_biomes" in data:
-                gen.add("worldgen/placed_feature", "gravelores", "overworld_piles", MOD_ID + ":" + data["pile"])
+                gen.add("worldgen/placed_feature", "gravelores", "overworld_piles", data["pile_id"])
+            if "nether_chance" in data:
+                # nether piles automatically append "_nether", so manually append for the tag
+                gen.add("worldgen/placed_feature", "gravelores", "nether_piles", data["pile_id"] + "_nether")
     
     # end of datagen, save the cache file
     cache.finalize()

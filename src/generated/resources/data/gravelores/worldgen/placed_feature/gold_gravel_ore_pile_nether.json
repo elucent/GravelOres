@@ -1,0 +1,16 @@
+{
+  "feature": "gravelores:gold_gravel_ore_pile",
+  "placement": [
+    {
+      "type": "minecraft:count_on_every_layer",
+      "count": 1
+    },
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 70
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
