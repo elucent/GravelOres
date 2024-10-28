@@ -3,14 +3,18 @@
   "block.gravelores.iron_gravel_ore": "Iron Gravel Ore",
   "block.gravelores.gold_gravel_ore": "Gold Gravel Ore",
   "block.gravelores.copper_gravel_ore": "Copper Gravel Ore",
+  
+  "block.gravelores.diamond_gravel_ore": "Diamond Gravel Ore",
+  "block.gravelores.emerald_gravel_ore": "Emerald Gravel Ore",
+  "block.gravelores.quartz_gravel_ore": "Quartz Gravel Ore",
+  
+  "block.gravelores.coal_gravel_ore": "Coal Gravel Ore",
+  "block.gravelores.redstone_gravel_ore": "Redstone Gravel Ore",
+  "block.gravelores.lapis_gravel_ore": "Lapis Gravel Ore",
+  
   "block.gravelores.tin_gravel_ore": "Tin Gravel Ore",
   "block.gravelores.silver_gravel_ore": "Silver Gravel Ore",
   "block.gravelores.lead_gravel_ore": "Lead Gravel Ore",
-  "block.gravelores.diamond_gravel_ore": "Diamond Gravel Ore",
-  "block.gravelores.redstone_gravel_ore": "Redstone Gravel Ore",
   "block.gravelores.nickel_gravel_ore": "Nickel Gravel Ore",
-  "block.gravelores.coal_gravel_ore": "Coal Gravel Ore",
-  "block.gravelores.emerald_gravel_ore": "Emerald Gravel Ore",
-  "block.gravelores.lapis_gravel_ore": "Lapis Gravel Ore",
   "block.gravelores.aluminum_gravel_ore": "Aluminum Gravel Ore"
 }
