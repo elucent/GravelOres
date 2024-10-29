@@ -1,20 +1,20 @@
 {
-  "gravelores.gravelores": "矿石沙砾",
-  "block.gravelores.iron_gravel_ore": "铁矿石沙砾",
-  "block.gravelores.gold_gravel_ore": "金矿石沙砾",
-  "block.gravelores.copper_gravel_ore": "铜矿石沙砾",
+  "gravelores.gravelores": "沙砾矿石",
+  "block.gravelores.iron_gravel_ore": "铁沙砾矿石",
+  "block.gravelores.gold_gravel_ore": "金沙砾矿石",
+  "block.gravelores.copper_gravel_ore": "铜沙砾矿石",
   
-  "block.gravelores.diamond_gravel_ore": "钻石矿石沙砾",
-  "block.gravelores.emerald_gravel_ore": "绿宝石矿石沙砾",
-  "block.gravelores.quartz_gravel_ore": "石英矿石沙砾",
+  "block.gravelores.diamond_gravel_ore": "钻石沙砾矿石",
+  "block.gravelores.emerald_gravel_ore": "绿宝石沙砾矿石",
+  "block.gravelores.quartz_gravel_ore": "石英沙砾矿石",
   
-  "block.gravelores.coal_gravel_ore": "煤炭矿石沙砾",
-  "block.gravelores.redstone_gravel_ore": "红石矿石沙砾",
-  "block.gravelores.lapis_gravel_ore": "青金石矿石沙砾",
+  "block.gravelores.coal_gravel_ore": "煤炭沙砾矿石",
+  "block.gravelores.redstone_gravel_ore": "红石沙砾矿石",
+  "block.gravelores.lapis_gravel_ore": "青金石沙砾矿石",
   
-  "block.gravelores.tin_gravel_ore": "锡矿石沙砾",
-  "block.gravelores.silver_gravel_ore": "银矿石沙砾",
-  "block.gravelores.lead_gravel_ore": "铅矿石沙砾",
-  "block.gravelores.nickel_gravel_ore": "镍矿石沙砾",
-  "block.gravelores.aluminum_gravel_ore": "铝矿石沙砾"
+  "block.gravelores.tin_gravel_ore": "锡沙砾矿石",
+  "block.gravelores.silver_gravel_ore": "银沙砾矿石",
+  "block.gravelores.lead_gravel_ore": "铅沙砾矿石",
+  "block.gravelores.nickel_gravel_ore": "镍沙砾矿石",
+  "block.gravelores.aluminum_gravel_ore": "铝沙砾矿石"
 }
