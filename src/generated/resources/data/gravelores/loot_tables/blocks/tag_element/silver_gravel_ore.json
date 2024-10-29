@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "name": "gravelores:ore_drops/silver",
+          "expand": true
+        }
+      ],
+      "functions": [
+        {
+          "enchantment": "minecraft:fortune",
+          "formula": "minecraft:ore_drops",
+          "function": "minecraft:apply_bonus"
+        },
+        {
+          "function": "minecraft:explosion_decay"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "gravelores:blocks/tag_element/silver_gravel_ore"
+}

@@ -1,0 +1,5 @@
+Vanilla: Copper, Iron, Gold, Diamond, Emerald, Quartz, Coal, Redstone, Lapis, gravel background
+Immersive Engineering: Aluminum, Lead, Nickel, Silver, Uranium
+Mekansim: Osmium, Tin
+Create: Zinc
+Cobalt: Tinkers' Construct
