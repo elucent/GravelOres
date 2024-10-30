@@ -8,6 +8,15 @@
     "gravelores:quartz_gravel_ore",
     "gravelores:coal_gravel_ore",
     "gravelores:redstone_gravel_ore",
-    "gravelores:lapis_gravel_ore"
+    "gravelores:lapis_gravel_ore",
+    "gravelores:aluminum_gravel_ore",
+    "gravelores:cobalt_gravel_ore",
+    "gravelores:lead_gravel_ore",
+    "gravelores:nickel_gravel_ore",
+    "gravelores:osmium_gravel_ore",
+    "gravelores:silver_gravel_ore",
+    "gravelores:tin_gravel_ore",
+    "gravelores:uranium_gravel_ore",
+    "gravelores:zinc_gravel_ore"
   ]
 }

@@ -34,7 +34,7 @@ class LootTableGenerator:
     
     # Methods for datagen root to call
     
-    def oreBlock(self, domain: str, name: str, drop: str,
+    def oreBlock(self, domain: str, name: str, drop: str, tag: bool = False,
                  count: Optional[Tuple[int, int]] = None, flatBonus: bool = False) -> None:
         """Adds a basic ore, with drops boosted by fortune or dropping self with silk touch"""
         data = {
@@ -76,8 +76,9 @@ class LootTableGenerator:
             "random_sequence": f"{domain}:blocks/{name}"
         }
         # redstone ore: swaps out the fortune formula to make it additive instead of multiplicative
+        dropObject = data["pools"][0]["entries"][0]["children"][1]
         if flatBonus:
-            data["pools"][0]["entries"][0]["children"][1]["functions"][0] = {
+            dropObject["functions"][0] = {
                 "enchantment": "minecraft:fortune",
                 "formula": "minecraft:uniform_bonus_count",
                 "function": "minecraft:apply_bonus",
@@ -85,7 +86,7 @@ class LootTableGenerator:
             }
         # redstone, lapis, copper: random drop ranges instead of base value of 1
         if count is not None:
-            data["pools"][0]["entries"][0]["children"][1]["functions"].insert(0, {
+            dropObject["functions"].insert(0, {
                 "add": False,
                 "count": {
                     "type": "minecraft:uniform",
@@ -94,5 +95,34 @@ class LootTableGenerator:
                 },
                 "function": "minecraft:set_count"
             })
+        if tag:
+            # functions do not apply to expanded tags due to https://bugs.mojang.com/browse/MC-212671
+            # as a result, we use a nested loot table so we can make use of applying a function to a pool
+            # then fetch an entry from that table for the main drop call
+            # TODO 1.21: `name` got replaced by `value` which can be an inline table.
+            # dropObject["type"] = "minecraft:tag"
+            # dropObject["expand"] = True
+            nested = {
+                "type": "minecraft:block",
+                "pools": [{
+                    "bonus_rolls": 0,
+                    "entries": [{
+                        "type": "minecraft:tag",
+                        "name": drop,
+                        "expand": True
+                    }],
+                    "functions": dropObject["functions"],
+                    "rolls": 1
+                }],
+                "random_sequence": f"{domain}:blocks/tag_element/{name}"
+            }
+            self.cache.saveJson(nested, DATA_ROOT, domain, BLOCK_TABLE_PATH, "tag_element", name, sortKeys=False)
+            self.blocks += 1
+            
+            
+            data["pools"][0]["entries"][0]["children"][1] = {
+                "type": "minecraft:loot_table",
+                "name": f"{domain}:blocks/tag_element/{name}"
+            }
         self.cache.saveJson(data, DATA_ROOT, domain, BLOCK_TABLE_PATH, name, sortKeys=False)
         self.blocks += 1

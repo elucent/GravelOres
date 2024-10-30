@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "gravelores:block/osmium_gravel_ore"
+  }
+}

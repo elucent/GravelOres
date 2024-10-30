@@ -6,6 +6,38 @@
     "gravelores:diamond_gravel_ore_pile",
     "gravelores:coal_gravel_ore_pile",
     "gravelores:redstone_gravel_ore_pile",
-    "gravelores:lapis_gravel_ore_pile"
+    "gravelores:lapis_gravel_ore_pile",
+    {
+      "id": "gravelores:aluminum_gravel_ore_pile",
+      "required": false
+    },
+    {
+      "id": "gravelores:lead_gravel_ore_pile",
+      "required": false
+    },
+    {
+      "id": "gravelores:nickel_gravel_ore_pile",
+      "required": false
+    },
+    {
+      "id": "gravelores:osmium_gravel_ore_pile",
+      "required": false
+    },
+    {
+      "id": "gravelores:silver_gravel_ore_pile",
+      "required": false
+    },
+    {
+      "id": "gravelores:tin_gravel_ore_pile",
+      "required": false
+    },
+    {
+      "id": "gravelores:uranium_gravel_ore_pile",
+      "required": false
+    },
+    {
+      "id": "gravelores:zinc_gravel_ore_pile",
+      "required": false
+    }
   ]
 }

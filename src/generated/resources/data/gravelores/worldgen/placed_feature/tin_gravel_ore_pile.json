@@ -1,0 +1,34 @@
+{
+  "feature": "gravelores:tin_gravel_ore_pile",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 650
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ],
+  "forge:conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "thermal"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mekanism"
+        }
+      ]
+    }
+  ]
+}

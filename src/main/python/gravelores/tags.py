@@ -46,13 +46,11 @@ class TagGenerator:
     
     # Methods for datagen root to call
 
-    def add(self, registry: str, domain: str, name: str, *values: str) -> None:
+    def add(self, registry: str, domain: str, name: str, *values: str, optional: bool = False) -> None:
         """Appends the given values to the given tag. Prefix a name with a # to append a tag."""
         key = self._enforceTagExists(registry, domain, name)
-        self.tags[key].extend(values)
-    
-    def addOptional(self, registry: str, domain: str, name: str, *values: str) -> None:
-        """Appends the given values as optional tag entries."""
-        key = self._enforceTagExists(registry, domain, name)
-        self.tags[key].extend([{"id": value, "required": False} for value in values])
+        if optional:
+            self.tags[key].extend([{"id": value, "required": False} for value in values])
+        else:
+            self.tags[key].extend(values)
         
