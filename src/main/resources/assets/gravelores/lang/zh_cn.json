@@ -11,10 +11,14 @@
   "block.gravelores.coal_gravel_ore": "煤炭沙砾矿石",
   "block.gravelores.redstone_gravel_ore": "红石沙砾矿石",
   "block.gravelores.lapis_gravel_ore": "青金石沙砾矿石",
-  
-  "block.gravelores.tin_gravel_ore": "锡沙砾矿石",
-  "block.gravelores.silver_gravel_ore": "银沙砾矿石",
+
+  "block.gravelores.aluminum_gravel_ore": "铝沙砾矿石",
+  "block.gravelores.cobalt_gravel_ore": "钴沙砾矿石",
   "block.gravelores.lead_gravel_ore": "铅沙砾矿石",
   "block.gravelores.nickel_gravel_ore": "镍沙砾矿石",
-  "block.gravelores.aluminum_gravel_ore": "铝沙砾矿石"
+  "block.gravelores.osmium_gravel_ore": "锇沙砾矿石",
+  "block.gravelores.silver_gravel_ore": "银沙砾矿石",
+  "block.gravelores.tin_gravel_ore": "锡沙砾矿石",
+  "block.gravelores.uranium_gravel_ore": "铀沙砾矿石",
+  "block.gravelores.zinc_gravel_ore": "锌沙砾矿石"
 }
