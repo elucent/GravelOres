@@ -1,0 +1,24 @@
+{
+  "gravelores.gravelores": "Gravel Ores",
+  "block.gravelores.iron_gravel_ore": "鉄砂利鉱石",
+  "block.gravelores.gold_gravel_ore": "金砂利鉱石",
+  "block.gravelores.copper_gravel_ore": "銅砂利鉱石",
+  
+  "block.gravelores.diamond_gravel_ore": "ダイヤモンド砂利鉱石",
+  "block.gravelores.emerald_gravel_ore": "エメラルド砂利鉱石",
+  "block.gravelores.quartz_gravel_ore": "クォーツ砂利鉱石",
+  
+  "block.gravelores.coal_gravel_ore": "石炭砂利鉱石",
+  "block.gravelores.redstone_gravel_ore": "レッドストーン砂利鉱石",
+  "block.gravelores.lapis_gravel_ore": "ラピスラズリ砂利鉱石",
+  
+  "block.gravelores.aluminum_gravel_ore": "アルミニウム砂利鉱石",
+  "block.gravelores.cobalt_gravel_ore": "コバルト砂利鉱石",
+  "block.gravelores.lead_gravel_ore": "鉛砂利鉱石",
+  "block.gravelores.nickel_gravel_ore": "ニッケル砂利鉱石",
+  "block.gravelores.osmium_gravel_ore": "オスミウム砂利鉱石",
+  "block.gravelores.silver_gravel_ore": "銀砂利鉱石",
+  "block.gravelores.tin_gravel_ore": "錫砂利鉱石",
+  "block.gravelores.uranium_gravel_ore": "ウラン砂利鉱石",
+  "block.gravelores.zinc_gravel_ore": "亜鉛砂利鉱石"
+}
