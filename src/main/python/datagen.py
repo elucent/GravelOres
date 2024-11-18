@@ -97,7 +97,7 @@ ORES = {
         "nether_chance": 300  # Rarer than gold
     },
     "lead": {
-        "mods": ["embers", "immersiveengineering", "thermal", "mekanism"],
+        "mods": ["embers", "immersiveengineering", "thermal", "mekanism", "oreganized"],
         "tier": "iron",  # mekansim says stone, consensus iron
         "tag_drop": "raw_materials",
         "overworld_chance": 750  # Embers 8, Thermal 6, Mek 8
@@ -115,7 +115,7 @@ ORES = {
         "overworld_chance": 450  # Mek: 65 + 6 + 8
     },
     "silver": {
-        "mods": ["embers", "immersiveengineering", "thermal"],
+        "mods": ["embers", "immersiveengineering", "thermal", "galosphere", "oreganized"],
         "tier": "iron",
         "tag_drop": "raw_materials",
         "overworld_chance": 850  # Embers 4, Thermal 4

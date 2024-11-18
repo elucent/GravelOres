@@ -23,6 +23,14 @@
         {
           "type": "forge:mod_loaded",
           "modid": "thermal"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "galosphere"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "oreganized"
         }
       ]
     }
