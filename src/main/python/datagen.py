@@ -121,7 +121,7 @@ ORES = {
         "overworld_chance": 850  # Embers 4, Thermal 4
     },
     "tin": {
-        "mods": ["thermal", "mekanism"],
+        "mods": ["thermal", "mekanism", "metalborn"],
         "tier": "stone",
         "tag_drop": "raw_materials",
         "overworld_chance": 650  # Mek: 14 + 12, Thermal 6
