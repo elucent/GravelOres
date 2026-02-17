@@ -85,7 +85,7 @@ ORES = {
     
     # compat
     "aluminum": {
-        "mods": ["immersiveengineering"],
+        "mods": ["immersiveengineering", "xycraft_world"],
         "tier": "stone",
         "tag_drop": "raw_materials",
         "overworld_chance": 750  # Immersive Engineering uses weird ore config so guessing
@@ -97,13 +97,13 @@ ORES = {
         "nether_chance": 300  # Rarer than gold
     },
     "lead": {
-        "mods": ["embers", "immersiveengineering", "thermal", "mekanism", "oreganized"],
+        "mods": ["embers", "immersiveengineering", "thermal", "mekanism", "oreganized", "railcraft"],
         "tier": "iron",  # mekansim says stone, consensus iron
         "tag_drop": "raw_materials",
         "overworld_chance": 750  # Embers 8, Thermal 6, Mek 8
     },
     "nickel": {
-        "mods": ["immersiveengineering", "thermal"],
+        "mods": ["immersiveengineering", "thermal", "railcraft"],
         "tier": "iron",
         "tag_drop": "raw_materials",
         "overworld_chance": 850  # Thermal 4
@@ -115,25 +115,25 @@ ORES = {
         "overworld_chance": 450  # Mek: 65 + 6 + 8
     },
     "silver": {
-        "mods": ["embers", "immersiveengineering", "thermal", "galosphere", "oreganized"],
+        "mods": ["embers", "immersiveengineering", "thermal", "galosphere", "oreganized", "galosphere", "projectred_exploration", "railcraft"],
         "tier": "iron",
         "tag_drop": "raw_materials",
         "overworld_chance": 850  # Embers 4, Thermal 4
     },
     "tin": {
-        "mods": ["thermal", "mekanism", "metalborn"],
+        "mods": ["thermal", "mekanism", "metalborn", "forestry", "projectred_exploration", "railcraft"],
         "tier": "stone",
         "tag_drop": "raw_materials",
         "overworld_chance": 650  # Mek: 14 + 12, Thermal 6
     },
     "uranium": {
-        "mods": ["immersiveengineering", "mekanism"],
+        "mods": ["immersiveengineering", "mekanism", "biggerreactors", "bigreactors"],
         "tier": "iron",  # mekanism says stone, but it already violated concensus
         "tag_drop": "raw_materials",
         "overworld_chance": 1000  # Mek: 4 + 7 (buried)
     },
     "zinc": {
-        "mods": ["create"],
+        "mods": ["create", "railcraft"],
         "tier": "iron",
         "tag_drop": "raw_materials",
         "overworld_chance": 750  # Create: 8

@@ -23,6 +23,18 @@
         {
           "type": "forge:mod_loaded",
           "modid": "metalborn"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "forestry"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "projectred_exploration"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "railcraft"
         }
       ]
     }

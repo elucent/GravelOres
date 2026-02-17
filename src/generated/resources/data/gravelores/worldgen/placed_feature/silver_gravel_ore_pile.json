@@ -39,6 +39,18 @@
         {
           "type": "forge:mod_loaded",
           "modid": "oreganized"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "galosphere"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "projectred_exploration"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "railcraft"
         }
       ]
     }

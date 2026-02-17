@@ -19,6 +19,14 @@
         {
           "type": "forge:mod_loaded",
           "modid": "mekanism"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "biggerreactors"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "bigreactors"
         }
       ]
     }
