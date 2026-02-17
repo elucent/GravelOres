@@ -1,1 +1,2 @@
 *.json linguist-detectable
+src/generated/resources/** linguist-generated
