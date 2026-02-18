@@ -90,6 +90,18 @@ ORES = {
         "tag_drop": "raw_materials",
         "overworld_chance": 750  # Immersive Engineering uses weird ore config so guessing
     },
+    "cadmium": {
+        "mods": ["allomancy", "cosmere"],
+        "tier": "stone",
+        "tag_drop": "raw_materials",
+        "overworld_chance": 1000  # Cosmere does half bit over half of tin
+    },
+    "chromium": {
+        "mods": ["allomancy", "cosmere"],
+        "tier": "stone",
+        "tag_drop": "raw_materials",
+        "overworld_chance": 1300  # Cosmere bit under half of tin
+    },
     "cobalt": {
         "mods": ["tconstruct"],
         "tier": "iron",

@@ -12,6 +12,14 @@
       "required": false
     },
     {
+      "id": "gravelores:cadmium_gravel_ore_pile",
+      "required": false
+    },
+    {
+      "id": "gravelores:chromium_gravel_ore_pile",
+      "required": false
+    },
+    {
       "id": "gravelores:lead_gravel_ore_pile",
       "required": false
     },

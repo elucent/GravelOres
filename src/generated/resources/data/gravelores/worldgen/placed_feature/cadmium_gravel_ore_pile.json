@@ -1,0 +1,34 @@
+{
+  "feature": "gravelores:cadmium_gravel_ore_pile",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 1000
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:or",
+      "values": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "allomancy"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "cosmere"
+        }
+      ]
+    }
+  ]
+}
