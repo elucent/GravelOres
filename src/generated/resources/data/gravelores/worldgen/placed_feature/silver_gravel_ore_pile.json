@@ -51,6 +51,14 @@
         {
           "type": "forge:mod_loaded",
           "modid": "railcraft"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "allomancy"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cosmere"
         }
       ]
     }
