@@ -186,11 +186,11 @@ if __name__ == "__main__":
                 gen.addPileNether(MOD_ID, data["pile"], data["id"], data["nether_chance"], data.get("mods"))
     
     with TagGenerator(cache) as gen:
-        gen.add("blocks", "minecraft", "mineable/shovel", *[data["id"] for data in ORES.values()])
+        gen.add("block", "minecraft", "mineable/shovel", *[data["id"] for data in ORES.values()])
         for variant, data in ORES.items():
             # harvest tiers
             if "tier" in data:
-                gen.add("blocks", "minecraft", f"needs_{data['tier']}_tool", data["id"])
+                gen.add("block", "minecraft", f"needs_{data['tier']}_tool", data["id"])
                 
             # tagging piles in the overworld tag adds them to overworld biomes
             if "overworld_chance" in data and not "custom_biomes" in data:
@@ -204,7 +204,7 @@ if __name__ == "__main__":
             # lets a modpack maker easily choose the drop for an ore without emptying the
             # forge tag or redefining our loot table
             if "tag_drop" in data:
-                gen.add("items", MOD_ID, f"ore_drops/{variant}", f"#forge:{data['tag_drop']}/{variant}", optional = True)
+                gen.add("item", MOD_ID, f"ore_drops/{variant}", f"#forge:{data['tag_drop']}/{variant}", optional = True)
                 
     
     # end of datagen, save the cache file
