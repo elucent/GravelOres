@@ -27,6 +27,14 @@
         {
           "type": "neoforge:mod_loaded",
           "modid": "xycraft_world"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "allomancy"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "cosmere"
         }
       ]
     }
