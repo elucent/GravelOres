@@ -1,6 +1,7 @@
 {
-    "pack": {
-        "description": "Gravel Ores",
-        "pack_format": 15
-    }
+  "pack": {
+    "description": "Gravel Ores",
+    "pack_format": 34,
+    "supported_formats": [34, 48]
+  }
 }
