@@ -4,7 +4,7 @@ from typing import Optional, Tuple
 from .cache import CachedOutput
 
 DATA_ROOT = "data"
-BLOCK_TABLE_PATH = "loot_tables/blocks"
+BLOCK_TABLE_PATH = "loot_table/blocks"
 
 class LootTableGenerator:
     """
