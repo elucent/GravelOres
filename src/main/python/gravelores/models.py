@@ -4,9 +4,10 @@ from .cache import CachedOutput
 
 ASSET_ROOT = "assets"
 BLOCKSTATE_PATH = "blockstates"
+ITEMS_PATH = "items"
 MODEL_ROOT = "models"
-BLOCK_PATH = "block"
-ITEM_PATH = "item"
+BLOCK_FOLDER = "block"
+ITEM_FOLDER = "item"
 
 class ModelGenerator:
     """
@@ -40,15 +41,24 @@ class ModelGenerator:
     def blockstateNoVariants(self, domain: str, name: str) -> None:
         """Creates a block state file with no variants that directs to a block model with the same name"""
         data = { "variants": { "": {
-            "model": f"{domain}:{BLOCK_PATH}/{name}"
+            "model": f"{domain}:{BLOCK_FOLDER}/{name}"
         }}}
         self.cache.saveJson(data, ASSET_ROOT, domain, BLOCKSTATE_PATH, name)
         self.blockstates += 1
     
     def itemBlockRedirect(self, domain: str, name: str) -> None:
         """Redirects the item model for the given name to the block model for the given name"""
-        data = { "parent": f"{domain}:{BLOCK_PATH}/{name}" }
-        self.cache.saveJson(data, ASSET_ROOT, domain, MODEL_ROOT, ITEM_PATH, name)
+        # format 1.21.1-1.21.3
+        data = { "parent": f"{domain}:{BLOCK_FOLDER}/{name}" }
+        self.cache.saveJson(data, ASSET_ROOT, domain, MODEL_ROOT, ITEM_FOLDER, name)
+        # format 1.21.4+
+        data = {
+          "model": {
+            "type": "minecraft:model",
+            "model": f"{domain}:{BLOCK_FOLDER}/{name}"
+          }
+        }
+        self.cache.saveJson(data, ASSET_ROOT, domain, ITEMS_PATH, name)
         self.items += 1
     
     def blockCubeAll(self, domain: str, name: str) -> None:
@@ -59,10 +69,10 @@ class ModelGenerator:
         data = {
             "parent": "block/cube_all",
             "textures": {
-                "all": f"{domain}:{BLOCK_PATH}/{name}"
+                "all": f"{domain}:{BLOCK_FOLDER}/{name}"
             }
         }
-        self.cache.saveJson(data, ASSET_ROOT, domain, MODEL_ROOT, BLOCK_PATH, name)
+        self.cache.saveJson(data, ASSET_ROOT, domain, MODEL_ROOT, BLOCK_FOLDER, name)
         self.blockstateNoVariants(domain, name)
         self.itemBlockRedirect(domain, name)
         self.blocks += 1
