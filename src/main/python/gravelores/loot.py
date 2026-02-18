@@ -49,10 +49,12 @@ class LootTableGenerator:
                               "conditions": [{
                                   "condition": "minecraft:match_tool",
                                   "predicate": {
-                                      "enchantments": [{
-                                          "enchantment": "minecraft:silk_touch",
-                                          "levels": { "min": 1 }
-                                      }]
+                                      "predicates": {
+                                          "minecraft:enchantments": [{
+                                              "enchantments": "minecraft:silk_touch",
+                                              "levels": { "min": 1 }
+                                          }]
+                                      }
                                   }
                               }],
                               "name": f"{domain}:{name}"
