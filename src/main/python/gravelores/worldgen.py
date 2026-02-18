@@ -9,17 +9,17 @@ PLACED_ROOT = "worldgen/placed_feature"
 
     
 def _makeModCondition(mod: str) -> Dict:
-    return { "type": "forge:mod_loaded", "modid": mod }
+    return { "type": "neoforge:mod_loaded", "modid": mod }
 
 def _addConditions(data: Dict, mods: Optional[List[str]] = None) -> None:
     """Adds the mod conditions to the given resource"""
     if mods is not None:
         assert len(mods) > 0
         if len(mods) == 1:
-            data["forge:conditions"] = [_makeModCondition(mods[0])]
+            data["neoforge:conditions"] = [_makeModCondition(mods[0])]
         else:
-            data["forge:conditions"] = [{
-                "type": "forge:or",
+            data["neoforge:conditions"] = [{
+                "type": "neoforge:or",
                 "values": [ _makeModCondition(mod) for mod in mods ]
             }]
             

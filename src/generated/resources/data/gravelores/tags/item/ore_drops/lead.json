@@ -1,7 +1,7 @@
 {
   "values": [
     {
-      "id": "#forge:raw_materials/lead",
+      "id": "#c:raw_materials/lead",
       "required": false
     }
   ]

@@ -200,11 +200,11 @@ if __name__ == "__main__":
                 # nether piles automatically append "_nether", so manually append for the tag
                 gen.add("worldgen/placed_feature", "gravelores", "nether_piles", data["pile_id"] + "_nether", optional = "mods" in data)
             
-            # redirect gravelores:ore_drops/<variant> to forge:raw_materials/<variant>
+            # redirect gravelores:ore_drops/<variant> to c:raw_materials/<variant>
             # lets a modpack maker easily choose the drop for an ore without emptying the
             # forge tag or redefining our loot table
             if "tag_drop" in data:
-                gen.add("item", MOD_ID, f"ore_drops/{variant}", f"#forge:{data['tag_drop']}/{variant}", optional = True)
+                gen.add("item", MOD_ID, f"ore_drops/{variant}", f"#c:{data['tag_drop']}/{variant}", optional = True)
                 
     
     # end of datagen, save the cache file

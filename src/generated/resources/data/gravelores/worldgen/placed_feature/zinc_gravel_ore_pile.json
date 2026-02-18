@@ -16,16 +16,16 @@
       "type": "minecraft:biome"
     }
   ],
-  "forge:conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:or",
+      "type": "neoforge:or",
       "values": [
         {
-          "type": "forge:mod_loaded",
+          "type": "neoforge:mod_loaded",
           "modid": "create"
         },
         {
-          "type": "forge:mod_loaded",
+          "type": "neoforge:mod_loaded",
           "modid": "railcraft"
         }
       ]

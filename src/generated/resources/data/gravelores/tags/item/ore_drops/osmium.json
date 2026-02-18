@@ -1,7 +1,7 @@
 {
   "values": [
     {
-      "id": "#forge:raw_materials/osmium",
+      "id": "#c:raw_materials/osmium",
       "required": false
     }
   ]

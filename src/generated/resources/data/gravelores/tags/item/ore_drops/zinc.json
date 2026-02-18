@@ -1,7 +1,7 @@
 {
   "values": [
     {
-      "id": "#forge:raw_materials/zinc",
+      "id": "#c:raw_materials/zinc",
       "required": false
     }
   ]

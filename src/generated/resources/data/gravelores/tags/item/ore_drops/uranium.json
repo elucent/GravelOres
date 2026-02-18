@@ -1,7 +1,7 @@
 {
   "values": [
     {
-      "id": "#forge:raw_materials/uranium",
+      "id": "#c:raw_materials/uranium",
       "required": false
     }
   ]
