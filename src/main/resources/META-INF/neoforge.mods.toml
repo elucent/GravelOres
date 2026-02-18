@@ -4,7 +4,7 @@ issueTrackerURL="https://github.com/elucent/GravelOres/issues"
 license="MIT"
 [[mods]]
     modId="gravelores"
-    version="2.2.0"
+    version="2.2.1"
     displayName="Gravel Ores"
     logoFile="pack.png"
     authors="elucent, KnightMiner"
@@ -15,7 +15,7 @@ license="MIT"
 [[dependencies.gravelores]]
     modId="minecraft"
     type="required"
-    versionRange="[1.21.1]"
+    versionRange="[1.21.1,1.21.11]"
     ordering="NONE"
     side="BOTH"
 [[dependencies.gravelores]]

@@ -2,6 +2,7 @@
   "pack": {
     "description": "Gravel Ores",
     "pack_format": 34,
-    "supported_formats": [34, 48]
+    "min_format": 34,
+    "max_format": 94
   }
 }
