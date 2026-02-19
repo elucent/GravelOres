@@ -85,19 +85,19 @@ ORES = {
     
     # compat
     "aluminum": {
-        "mods": ["immersiveengineering", "xycraft_world", "allomancy", "cosmere"],
+        "mods": ["immersiveengineering", "xycraft_world", "allomancy", "cosmere", "modern_industrialization"],
         "tier": "stone",
         "tag_drop": "raw_materials",
         "overworld_chance": 750  # Immersive Engineering uses weird ore config so guessing
     },
     "cadmium": {
-        "mods": ["allomancy", "cosmere"],
+        "mods": ["allomancy", "cosmere", "modern_industrialization"],
         "tier": "stone",
         "tag_drop": "raw_materials",
         "overworld_chance": 1000  # Cosmere does half bit over half of tin
     },
     "chromium": {
-        "mods": ["allomancy", "cosmere"],
+        "mods": ["allomancy", "cosmere", "modern_industrialization"],
         "tier": "stone",
         "tag_drop": "raw_materials",
         "overworld_chance": 1300  # Cosmere bit under half of tin
@@ -109,13 +109,13 @@ ORES = {
         "nether_chance": 300  # Rarer than gold
     },
     "lead": {
-        "mods": ["embers", "immersiveengineering", "thermal", "mekanism", "oreganized", "railcraft", "allomancy", "cosmere"],
+        "mods": ["embers", "immersiveengineering", "thermal", "mekanism", "oreganized", "railcraft", "allomancy", "cosmere", "eidolon", "modern_industrialization"],
         "tier": "iron",  # mekansim says stone, consensus iron
         "tag_drop": "raw_materials",
         "overworld_chance": 750  # Embers 8, Thermal 6, Mek 8
     },
     "nickel": {
-        "mods": ["immersiveengineering", "thermal", "railcraft", "cosmere"],
+        "mods": ["immersiveengineering", "thermal", "railcraft", "cosmere", "modern_industrialization"],
         "tier": "iron",
         "tag_drop": "raw_materials",
         "overworld_chance": 850  # Thermal 4
@@ -127,19 +127,19 @@ ORES = {
         "overworld_chance": 450  # Mek: 65 + 6 + 8
     },
     "silver": {
-        "mods": ["embers", "immersiveengineering", "thermal", "galosphere", "oreganized", "galosphere", "projectred_exploration", "railcraft", "allomancy", "cosmere"],
+        "mods": ["embers", "immersiveengineering", "thermal", "galosphere", "oreganized", "projectred_exploration", "railcraft", "allomancy", "cosmere", "eidolon", "modern_industrialization"],
         "tier": "iron",
         "tag_drop": "raw_materials",
         "overworld_chance": 850  # Embers 4, Thermal 4
     },
     "tin": {
-        "mods": ["thermal", "mekanism", "metalborn", "forestry", "projectred_exploration", "railcraft", "allomancy", "cosmere"],
+        "mods": ["thermal", "mekanism", "metalborn", "forestry", "projectred_exploration", "railcraft", "allomancy", "cosmere", "modern_industrialization"],
         "tier": "stone",
         "tag_drop": "raw_materials",
         "overworld_chance": 650  # Mek: 14 + 12, Thermal 6
     },
     "uranium": {
-        "mods": ["immersiveengineering", "mekanism", "biggerreactors", "bigreactors"],
+        "mods": ["immersiveengineering", "mekanism", "biggerreactors", "bigreactors", "modern_industrialization"],
         "tier": "iron",  # mekanism says stone, but it already violated concensus
         "tag_drop": "raw_materials",
         "overworld_chance": 1000  # Mek: 4 + 7 (buried)

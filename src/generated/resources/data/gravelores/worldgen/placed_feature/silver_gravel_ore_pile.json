@@ -42,10 +42,6 @@
         },
         {
           "type": "neoforge:mod_loaded",
-          "modid": "galosphere"
-        },
-        {
-          "type": "neoforge:mod_loaded",
           "modid": "projectred_exploration"
         },
         {
@@ -59,6 +55,14 @@
         {
           "type": "neoforge:mod_loaded",
           "modid": "cosmere"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "eidolon"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "modern_industrialization"
         }
       ]
     }
