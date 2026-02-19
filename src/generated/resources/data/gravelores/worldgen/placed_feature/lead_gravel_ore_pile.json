@@ -51,6 +51,10 @@
         {
           "type": "forge:mod_loaded",
           "modid": "cosmere"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "eidolon"
         }
       ]
     }
