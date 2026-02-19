@@ -27,10 +27,6 @@
         {
           "type": "neoforge:mod_loaded",
           "modid": "cosmere"
-        },
-        {
-          "type": "neoforge:mod_loaded",
-          "modid": "modern_industrialization"
         }
       ]
     }

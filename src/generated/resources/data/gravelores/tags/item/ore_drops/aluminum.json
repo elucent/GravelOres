@@ -3,6 +3,10 @@
     {
       "id": "#c:raw_materials/aluminum",
       "required": false
+    },
+    {
+      "id": "#c:dusts/bauxite",
+      "required": false
     }
   ]
 }

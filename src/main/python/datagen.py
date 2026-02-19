@@ -91,13 +91,13 @@ ORES = {
         "overworld_chance": 750  # Immersive Engineering uses weird ore config so guessing
     },
     "cadmium": {
-        "mods": ["allomancy", "cosmere", "modern_industrialization"],
+        "mods": ["allomancy", "cosmere"],
         "tier": "stone",
         "tag_drop": "raw_materials",
         "overworld_chance": 1000  # Cosmere does half bit over half of tin
     },
     "chromium": {
-        "mods": ["allomancy", "cosmere", "modern_industrialization"],
+        "mods": ["allomancy", "cosmere"],
         "tier": "stone",
         "tag_drop": "raw_materials",
         "overworld_chance": 1300  # Cosmere bit under half of tin
@@ -217,6 +217,9 @@ if __name__ == "__main__":
             # forge tag or redefining our loot table
             if "tag_drop" in data:
                 gen.add("item", MOD_ID, f"ore_drops/{variant}", f"#c:{data['tag_drop']}/{variant}", optional = True)
+                
+        # MI is unique and does not drop a raw ore from aluminum ore, they drop bauxite dust instead, so add that to our drops tag
+        gen.add("item", MOD_ID, f"ore_drops/aluminum", "#c:dusts/bauxite", optional = True)
                 
     
     # end of datagen, save the cache file
