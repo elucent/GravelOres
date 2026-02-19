@@ -22,19 +22,19 @@
       "values": [
         {
           "type": "neoforge:mod_loaded",
-          "modid": "create"
-        },
-        {
-          "type": "neoforge:mod_loaded",
-          "modid": "railcraft"
-        },
-        {
-          "type": "neoforge:mod_loaded",
           "modid": "allomancy"
         },
         {
           "type": "neoforge:mod_loaded",
           "modid": "cosmere"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "create"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "railcraft"
         }
       ]
     }

@@ -22,7 +22,15 @@
       "values": [
         {
           "type": "neoforge:mod_loaded",
-          "modid": "thermal"
+          "modid": "allomancy"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "cosmere"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "forestry"
         },
         {
           "type": "neoforge:mod_loaded",
@@ -34,7 +42,7 @@
         },
         {
           "type": "neoforge:mod_loaded",
-          "modid": "forestry"
+          "modid": "modern_industrialization"
         },
         {
           "type": "neoforge:mod_loaded",
@@ -46,15 +54,7 @@
         },
         {
           "type": "neoforge:mod_loaded",
-          "modid": "allomancy"
-        },
-        {
-          "type": "neoforge:mod_loaded",
-          "modid": "cosmere"
-        },
-        {
-          "type": "neoforge:mod_loaded",
-          "modid": "modern_industrialization"
+          "modid": "thermal"
         }
       ]
     }
