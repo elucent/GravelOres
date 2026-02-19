@@ -14,11 +14,11 @@
       "values": [
         {
           "type": "forge:mod_loaded",
-          "modid": "immersiveengineering"
+          "modid": "cosmere"
         },
         {
           "type": "forge:mod_loaded",
-          "modid": "thermal"
+          "modid": "immersiveengineering"
         },
         {
           "type": "forge:mod_loaded",
@@ -26,7 +26,7 @@
         },
         {
           "type": "forge:mod_loaded",
-          "modid": "cosmere"
+          "modid": "thermal"
         }
       ]
     }

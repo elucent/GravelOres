@@ -22,15 +22,23 @@
       "values": [
         {
           "type": "forge:mod_loaded",
+          "modid": "allomancy"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cosmere"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "eidolon"
+        },
+        {
+          "type": "forge:mod_loaded",
           "modid": "embers"
         },
         {
           "type": "forge:mod_loaded",
           "modid": "immersiveengineering"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "thermal"
         },
         {
           "type": "forge:mod_loaded",
@@ -46,15 +54,7 @@
         },
         {
           "type": "forge:mod_loaded",
-          "modid": "allomancy"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "cosmere"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "eidolon"
+          "modid": "thermal"
         }
       ]
     }

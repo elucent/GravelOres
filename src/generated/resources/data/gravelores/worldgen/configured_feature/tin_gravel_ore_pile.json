@@ -14,7 +14,15 @@
       "values": [
         {
           "type": "forge:mod_loaded",
-          "modid": "thermal"
+          "modid": "allomancy"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cosmere"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "forestry"
         },
         {
           "type": "forge:mod_loaded",
@@ -26,10 +34,6 @@
         },
         {
           "type": "forge:mod_loaded",
-          "modid": "forestry"
-        },
-        {
-          "type": "forge:mod_loaded",
           "modid": "projectred_exploration"
         },
         {
@@ -38,11 +42,7 @@
         },
         {
           "type": "forge:mod_loaded",
-          "modid": "allomancy"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "cosmere"
+          "modid": "thermal"
         }
       ]
     }

@@ -22,19 +22,19 @@
       "values": [
         {
           "type": "forge:mod_loaded",
-          "modid": "immersiveengineering"
-        },
-        {
-          "type": "forge:mod_loaded",
-          "modid": "xycraft_world"
-        },
-        {
-          "type": "forge:mod_loaded",
           "modid": "allomancy"
         },
         {
           "type": "forge:mod_loaded",
           "modid": "cosmere"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "immersiveengineering"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "xycraft_world"
         }
       ]
     }
