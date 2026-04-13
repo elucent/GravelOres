@@ -64,5 +64,11 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "gravelores:blocks/osmium_gravel_ore"
+  "random_sequence": "gravelores:blocks/osmium_gravel_ore",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
 }

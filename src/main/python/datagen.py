@@ -187,9 +187,9 @@ if __name__ == "__main__":
         for data in ORES.values():
             drop = data["drop"]
             if isinstance(drop, dict):
-                gen.oreBlock(MOD_ID, data["name"], **drop)
+                gen.oreBlock(MOD_ID, data["name"], **drop, mods=data.get("mods"))
             else:
-                gen.oreBlock(MOD_ID, data["name"], drop=drop)
+                gen.oreBlock(MOD_ID, data["name"], drop=drop, mods=data.get("mods"))
     
     with WorldgenGenerator(cache) as gen:
         for data in ORES.values():
@@ -199,19 +199,21 @@ if __name__ == "__main__":
                 gen.addPileNether(MOD_ID, data["pile"], data["id"], data["nether_chance"], data.get("mods"))
     
     with TagGenerator(cache) as gen:
-        gen.add("block", "minecraft", "mineable/shovel", *[data["id"] for data in ORES.values()])
+        gen.add("block", "minecraft", "mineable/shovel", *[data["id"] for data in ORES.values() if not "mods" in data])
+        gen.add("block", "minecraft", "mineable/shovel", *[data["id"] for data in ORES.values() if "mods" in data], optional=True)
         for variant, data in ORES.items():
             # harvest tiers
+            optional = "mods" in data
             if "tier" in data:
-                gen.add("block", "minecraft", f"needs_{data['tier']}_tool", data["id"])
+                gen.add("block", "minecraft", f"needs_{data['tier']}_tool", data["id"], optional=optional)
                 
             # tagging piles in the overworld tag adds them to overworld biomes
             if "overworld_chance" in data and not "custom_biomes" in data:
-                gen.add("worldgen/placed_feature", "gravelores", "overworld_piles", data["pile_id"], optional = "mods" in data)
+                gen.add("worldgen/placed_feature", "gravelores", "overworld_piles", data["pile_id"], optional=optional)
             # tagging piles in the nether tag adds them to nether biomes
             if "nether_chance" in data:
                 # nether piles automatically append "_nether", so manually append for the tag
-                gen.add("worldgen/placed_feature", "gravelores", "nether_piles", data["pile_id"] + "_nether", optional = "mods" in data)
+                gen.add("worldgen/placed_feature", "gravelores", "nether_piles", data["pile_id"] + "_nether", optional=optional)
             
             # redirect gravelores:ore_drops/<variant> to c:raw_materials/<variant>
             # lets a modpack maker easily choose the drop for an ore without emptying the

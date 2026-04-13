@@ -64,5 +64,20 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "gravelores:blocks/chromium_gravel_ore"
+  "random_sequence": "gravelores:blocks/chromium_gravel_ore",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:or",
+      "values": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "allomancy"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "cosmere"
+        }
+      ]
+    }
+  ]
 }

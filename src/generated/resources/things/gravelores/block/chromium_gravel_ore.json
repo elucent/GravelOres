@@ -13,5 +13,20 @@
   "requires_tool_for_drops": true,
   "item": {
     "group": "gravelores:gravelores"
-  }
+  },
+  "conditions": [
+    {
+      "type": "any",
+      "conditions": [
+        {
+          "type": "mod_loaded",
+          "modid": "allomancy"
+        },
+        {
+          "type": "mod_loaded",
+          "modid": "cosmere"
+        }
+      ]
+    }
+  ]
 }

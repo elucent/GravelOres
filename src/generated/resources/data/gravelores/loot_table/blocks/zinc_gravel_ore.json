@@ -64,5 +64,28 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "gravelores:blocks/zinc_gravel_ore"
+  "random_sequence": "gravelores:blocks/zinc_gravel_ore",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:or",
+      "values": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "allomancy"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "cosmere"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "create"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "railcraft"
+        }
+      ]
+    }
+  ]
 }

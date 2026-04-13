@@ -4,11 +4,29 @@
     "gravelores:diamond_gravel_ore",
     "gravelores:emerald_gravel_ore",
     "gravelores:redstone_gravel_ore",
-    "gravelores:cobalt_gravel_ore",
-    "gravelores:lead_gravel_ore",
-    "gravelores:nickel_gravel_ore",
-    "gravelores:silver_gravel_ore",
-    "gravelores:uranium_gravel_ore",
-    "gravelores:zinc_gravel_ore"
+    {
+      "id": "gravelores:cobalt_gravel_ore",
+      "required": false
+    },
+    {
+      "id": "gravelores:lead_gravel_ore",
+      "required": false
+    },
+    {
+      "id": "gravelores:nickel_gravel_ore",
+      "required": false
+    },
+    {
+      "id": "gravelores:silver_gravel_ore",
+      "required": false
+    },
+    {
+      "id": "gravelores:uranium_gravel_ore",
+      "required": false
+    },
+    {
+      "id": "gravelores:zinc_gravel_ore",
+      "required": false
+    }
   ]
 }

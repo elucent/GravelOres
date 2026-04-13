@@ -15,7 +15,7 @@ license="MIT"
 [[dependencies.gravelores]]
     modId="minecraft"
     type="required"
-    versionRange="[1.21.1,26.2)"
+    versionRange="[1.21.1],[26.1,26.2)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.gravelores]]
@@ -27,6 +27,6 @@ license="MIT"
 [[dependencies.gravelores]]
     modId="jsonthings"
     mandatory=true
-    versionRange="[0.13.4,)"
+    versionRange="[0.13.6,0.14),[0.18.2,)"
     ordering="NONE"
     side="BOTH"

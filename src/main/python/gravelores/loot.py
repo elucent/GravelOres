@@ -1,7 +1,8 @@
 import logging
 from time import perf_counter
-from typing import Optional, Tuple
+from typing import List, Optional, Tuple
 from .cache import CachedOutput
+from .condition import addConditions
 
 DATA_ROOT = "data"
 BLOCK_TABLE_PATH = "loot_table/blocks"
@@ -35,7 +36,7 @@ class LootTableGenerator:
     # Methods for datagen root to call
     
     def oreBlock(self, domain: str, name: str, drop: str, tag: bool = False,
-                 count: Optional[Tuple[int, int]] = None, flatBonus: bool = False) -> None:
+                 count: Optional[Tuple[int, int]] = None, flatBonus: bool = False, mods: Optional[List[str]] = None) -> None:
         """Adds a basic ore, with drops boosted by fortune or dropping self with silk touch"""
         data = {
             "type": "minecraft:block",
@@ -121,5 +122,6 @@ class LootTableGenerator:
                 "type": "minecraft:loot_table",
                 "value": nested
             }
+        addConditions(data, mods)
         self.cache.saveJson(data, DATA_ROOT, domain, BLOCK_TABLE_PATH, name, sortKeys=False)
         self.blocks += 1

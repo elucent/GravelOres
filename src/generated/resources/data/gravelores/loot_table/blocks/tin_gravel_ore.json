@@ -64,5 +64,48 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "gravelores:blocks/tin_gravel_ore"
+  "random_sequence": "gravelores:blocks/tin_gravel_ore",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:or",
+      "values": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "allomancy"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "cosmere"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "forestry"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "mekanism"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "metalborn"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "modern_industrialization"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "projectred_exploration"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "railcraft"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "thermal"
+        }
+      ]
+    }
+  ]
 }

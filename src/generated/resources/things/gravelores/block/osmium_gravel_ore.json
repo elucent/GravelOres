@@ -13,5 +13,11 @@
   "requires_tool_for_drops": true,
   "item": {
     "group": "gravelores:gravelores"
-  }
+  },
+  "conditions": [
+    {
+      "type": "mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
 }

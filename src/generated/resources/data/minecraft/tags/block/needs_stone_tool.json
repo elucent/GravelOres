@@ -3,10 +3,25 @@
     "gravelores:copper_gravel_ore",
     "gravelores:iron_gravel_ore",
     "gravelores:lapis_gravel_ore",
-    "gravelores:aluminum_gravel_ore",
-    "gravelores:cadmium_gravel_ore",
-    "gravelores:chromium_gravel_ore",
-    "gravelores:osmium_gravel_ore",
-    "gravelores:tin_gravel_ore"
+    {
+      "id": "gravelores:aluminum_gravel_ore",
+      "required": false
+    },
+    {
+      "id": "gravelores:cadmium_gravel_ore",
+      "required": false
+    },
+    {
+      "id": "gravelores:chromium_gravel_ore",
+      "required": false
+    },
+    {
+      "id": "gravelores:osmium_gravel_ore",
+      "required": false
+    },
+    {
+      "id": "gravelores:tin_gravel_ore",
+      "required": false
+    }
   ]
 }

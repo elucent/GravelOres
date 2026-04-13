@@ -1,27 +1,12 @@
 import logging
 from time import perf_counter
-from typing import Dict, List, Optional, Set, Tuple
+from typing import List, Optional, Set, Tuple
 from .cache import CachedOutput
+from .condition import addConditions
 
 DATA_ROOT = "data"
 CONFIGURED_ROOT = "worldgen/configured_feature"
 PLACED_ROOT = "worldgen/placed_feature"
-
-    
-def _makeModCondition(mod: str) -> Dict:
-    return { "type": "neoforge:mod_loaded", "modid": mod }
-
-def _addConditions(data: Dict, mods: Optional[List[str]] = None) -> None:
-    """Adds the mod conditions to the given resource"""
-    if mods is not None:
-        assert len(mods) > 0
-        if len(mods) == 1:
-            data["neoforge:conditions"] = [_makeModCondition(mods[0])]
-        else:
-            data["neoforge:conditions"] = [{
-                "type": "neoforge:or",
-                "values": [ _makeModCondition(mod) for mod in mods ]
-            }]
             
 class WorldgenGenerator:
     """
@@ -74,7 +59,7 @@ class WorldgenGenerator:
                 }
             }
         }
-        _addConditions(data, mods)
+        addConditions(data, mods)
         self.cache.saveJson(data, DATA_ROOT, domain, CONFIGURED_ROOT, name, sortKeys=False)
     
     def addPile(self, domain: str, name: str, block: str, chance: int, mods: Optional[List[str]] = None) -> None:
@@ -95,7 +80,7 @@ class WorldgenGenerator:
                 { "type": "minecraft:biome" }
             ]
         }
-        _addConditions(data, mods)
+        addConditions(data, mods)
         self.cache.saveJson(data, DATA_ROOT, domain, PLACED_ROOT, name, sortKeys=False)
         self.placed += 1
     
@@ -116,6 +101,6 @@ class WorldgenGenerator:
                 { "type": "minecraft:biome" }
             ]
         }
-        _addConditions(data, mods)
+        addConditions(data, mods)
         self.cache.saveJson(data, DATA_ROOT, domain, PLACED_ROOT, name + "_nether", sortKeys=False)
         self.placed += 1
