@@ -11,7 +11,5 @@
   "destroy_time": 1.6,
   "explosion_resistance": 1,
   "requires_tool_for_drops": true,
-  "item": {
-    "group": "gravelores:gravelores"
-  }
+  "item": {}
 }

@@ -180,7 +180,8 @@ if __name__ == "__main__":
     
     with BlockGenerator(cache) as gen:
         for data in ORES.values():
-            gen.gravelBlock(MOD_ID, data["name"], itemGroup=ITEM_GROUP)
+            # only add to the item group if optional. Any always added we added in sorted order to the tab directly
+            gen.gravelBlock(MOD_ID, data["name"], itemGroup=ITEM_GROUP if "mods" in data else None, mods=data.get("mods"))
     
     with LootTableGenerator(cache) as gen:
         for data in ORES.values():
